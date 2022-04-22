@@ -9,6 +9,8 @@ describe Exif do
 
     hsh = exif.to_h
 
+    hsh["compression"].should eq("JPEG compression")
+    hsh["image_description"].should eq("")
     hsh["make"].should eq("NIKON")
     hsh["model"].should eq("COOLPIX P6000")
     hsh["user_comment"].should eq("")
