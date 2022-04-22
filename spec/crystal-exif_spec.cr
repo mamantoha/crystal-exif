@@ -4,10 +4,10 @@ describe Exif do
   file = File.open("#{__DIR__}/fixtures/metadata_test.jpg")
   path = file.path
 
-  it ".to_h" do
+  it ".data" do
     exif = Exif.new(path)
 
-    hsh = exif.to_h
+    hsh = exif.data
 
     hsh["compression"].should eq("JPEG compression")
     hsh["image_description"].should eq("")
