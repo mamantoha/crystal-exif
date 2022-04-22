@@ -9,7 +9,7 @@ class Exif
     to_h
   end
 
-  {% for name, index in LibExif::ExifTag.constants %}
+  {% for name, _index in LibExif::ExifTag.constants %}
     {% attr = name.gsub(/^ExifTag/, "").underscore %}
     def {{attr.id}} : String?
       @data["{{attr}}"]?
