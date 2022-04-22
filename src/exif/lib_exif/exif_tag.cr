@@ -1,5 +1,3 @@
-@[Link("libexif")]
-
 # exif-tag.h
 # Handling EXIF tags
 lib LibExif
