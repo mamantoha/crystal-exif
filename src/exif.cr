@@ -41,7 +41,6 @@ class Exif
       # title = String.new(mnote_data_title_ptr)
       # description = String.new(mnote_data_description_ptr)
 
-
       # p! id
       # p! name
       # p! title
