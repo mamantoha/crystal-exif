@@ -6,9 +6,24 @@
 lib LibExif
   fun exif_data_new_from_file
   fun exif_data_ref
+  fun exif_data_unref
   fun exif_data_get_mnote_data
-
   fun exif_data_foreach_content
+  fun exif_data_new
+  fun exif_data_log
+  fun exif_data_load_data
+  fun exif_data_free
+
+  fun exif_mnote_data_ref
+  fun exif_mnote_data_unref
+  fun exif_mnote_data_load
+  fun exif_mnote_data_count
+  fun exif_mnote_data_get_id
+  fun exif_mnote_data_get_name
+  fun exif_mnote_data_get_title
+  fun exif_mnote_data_get_description
+  fun exif_mnote_data_get_value
+
 
   fun exif_content_new
   fun exif_content_get_entry
@@ -17,15 +32,9 @@ lib LibExif
 
   fun exif_ifd_get_name
 
-  fun exif_mnote_data_ref
-
   fun exif_log_new
   fun exif_log_set_func
-  fun exif_data_new
-  fun exif_data_log
-  fun exif_data_load_data
   fun exif_log_unref
-  fun exif_data_free
 
   fun exif_loader_new
   fun exif_loader_write

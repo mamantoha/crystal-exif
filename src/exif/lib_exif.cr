@@ -1,5 +1,3 @@
-require "./lib_exif/**"
-
 @[Link("libexif")]
 lib LibExif
   struct X_ExifData
@@ -51,10 +49,25 @@ lib LibExif
   type ExifDataPrivate = Void*
   fun exif_data_new_from_file(path : LibC::Char*) : ExifData*
   fun exif_data_ref(data : ExifData*)
+  fun exif_data_unref(data : ExifData*)
   type ExifMnoteData = Void*
   fun exif_data_get_mnote_data(d : ExifData*) : ExifMnoteData
   alias ExifDataForeachContentFunc = (ExifContent*, Void* -> Void)
   fun exif_data_foreach_content(data : ExifData*, func : ExifDataForeachContentFunc, user_data : Void*)
+  fun exif_data_new : ExifData*
+  type ExifLog = Void*
+  fun exif_data_log(data : ExifData*, log : ExifLog)
+  fun exif_data_load_data(data : ExifData*, d : UInt8*, size : LibC::UInt)
+  fun exif_data_free(data : ExifData*)
+  fun exif_mnote_data_ref(x0 : ExifMnoteData)
+  fun exif_mnote_data_unref(x0 : ExifMnoteData)
+  fun exif_mnote_data_load(d : ExifMnoteData, buf : UInt8*, buf_size : LibC::UInt)
+  fun exif_mnote_data_count(d : ExifMnoteData) : LibC::UInt
+  fun exif_mnote_data_get_id(d : ExifMnoteData, n : LibC::UInt) : LibC::UInt
+  fun exif_mnote_data_get_name(d : ExifMnoteData, n : LibC::UInt) : LibC::Char*
+  fun exif_mnote_data_get_title(d : ExifMnoteData, n : LibC::UInt) : LibC::Char*
+  fun exif_mnote_data_get_description(d : ExifMnoteData, n : LibC::UInt) : LibC::Char*
+  fun exif_mnote_data_get_value(d : ExifMnoteData, n : LibC::UInt, val : LibC::Char*, maxlen : LibC::UInt) : LibC::Char*
   fun exif_content_new : ExifContent*
   fun exif_content_get_entry(content : ExifContent*, tag : ExifTag) : ExifEntry*
   fun exif_entry_get_value(entry : ExifEntry*, val : LibC::Char*, maxlen : LibC::UInt) : LibC::Char*
@@ -67,8 +80,6 @@ lib LibExif
     ExifIfdCount            = 5
   end
   fun exif_ifd_get_name(ifd : ExifIfd) : LibC::Char*
-  fun exif_mnote_data_ref(x0 : ExifMnoteData)
-  type ExifLog = Void*
   fun exif_log_new : ExifLog
   enum ExifLogCode
     ExifLogCodeNone        = 0
@@ -80,11 +91,7 @@ lib LibExif
   alias VaList = X__GnucVaList
   alias ExifLogFunc = (ExifLog, ExifLogCode, LibC::Char*, LibC::Char*, VaList, Void* -> Void)
   fun exif_log_set_func(log : ExifLog, func : ExifLogFunc, data : Void*)
-  fun exif_data_new : ExifData*
-  fun exif_data_log(data : ExifData*, log : ExifLog)
-  fun exif_data_load_data(data : ExifData*, d : UInt8*, size : LibC::UInt)
   fun exif_log_unref(log : ExifLog)
-  fun exif_data_free(data : ExifData*)
   type ExifLoader = Void*
   fun exif_loader_new : ExifLoader
   fun exif_loader_write(loader : ExifLoader, buf : UInt8*, sz : LibC::UInt) : UInt8
