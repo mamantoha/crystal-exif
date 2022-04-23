@@ -7,15 +7,24 @@ describe Exif do
   it ".data" do
     exif = Exif.new(path)
 
-    hsh = exif.data
+    data = exif.data
 
-    hsh["compression"].should eq("JPEG compression")
-    hsh["image_description"].should eq("")
-    hsh["make"].should eq("NIKON")
-    hsh["model"].should eq("COOLPIX P6000")
-    hsh["user_comment"].should eq("")
-    hsh["gps_latitude"].should eq("43, 28, 2.81400000")
-    hsh["gps_longitude"].should eq("11, 53, 6.45599999")
+    data["compression"].should eq("JPEG compression")
+    data["image_description"].should eq("")
+    data["make"].should eq("NIKON")
+    data["model"].should eq("COOLPIX P6000")
+    data["user_comment"].should eq("")
+    data["gps_latitude"].should eq("43, 28, 2.81400000")
+    data["gps_longitude"].should eq("11, 53, 6.45599999")
+  end
+
+  it ".mnote_data" do
+    exif = Exif.new(path)
+
+    mnote_data = exif.mnote_data
+
+    mnote_data["Firmware"].should eq("0210")
+    mnote_data["CaptureEditorVer"].should eq("COOLPIX P6000V1.0")
   end
 
   context "instance methods" do

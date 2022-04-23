@@ -45,7 +45,7 @@ class Exif
     (0...num).each do |i|
       mnote_data_name_ptr = LibExif.exif_mnote_data_get_name(@mnote_data_ptr, i)
 
-      next if mnote_data_name_ptr.null?
+      next unless mnote_data_name_ptr
 
       mnote_data_value_ptr = LibExif.exif_mnote_data_get_value(@mnote_data_ptr, i, pointerof(@buf), 1024)
       value = String.new(mnote_data_value_ptr)
@@ -54,8 +54,6 @@ class Exif
 
       @mnote_data[name] = value.strip
     end
-
-    LibExif.exif_mnote_data_unref(@mnote_data_ptr)
 
     @mnote_data
   end
