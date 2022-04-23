@@ -5,7 +5,7 @@ path = file.path
 
 exif = Exif.new(path)
 
-pp exif.to_h
+pp exif.data
 
 p! exif.gps_latitude
 p! exif.gps_longitude
