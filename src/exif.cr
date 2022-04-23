@@ -29,7 +29,7 @@ class Exif
 
       next unless entry_ptr
 
-      value_ptr = LibExif.exif_entry_get_value(entry_ptr, out buf, 32)
+      value_ptr = LibExif.exif_entry_get_value(entry_ptr, out buf, 64)
       value = String.new(value_ptr)
 
       @data[attr] = value.strip
@@ -47,7 +47,7 @@ class Exif
 
       next unless mnote_data_name_ptr
 
-      mnote_data_value_ptr = LibExif.exif_mnote_data_get_value(@mnote_data_ptr, i, pointerof(@buf), 1024)
+      mnote_data_value_ptr = LibExif.exif_mnote_data_get_value(@mnote_data_ptr, i, pointerof(@buf), 64)
       value = String.new(mnote_data_value_ptr)
 
       name = String.new(mnote_data_name_ptr)
