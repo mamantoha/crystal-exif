@@ -27,6 +27,16 @@ describe Exif do
     mnote_data["CaptureEditorVer"].should eq("COOLPIX P6000V1.0")
   end
 
+  context "issues" do
+    it "should ot raise Invalid memory access" do
+      1024.times do |i|
+        exif = Exif.new(path)
+        data = exif.data
+        mnote_data = exif.mnote_data
+      end
+    end
+  end
+
   context "instance methods" do
     it ".gps_latitude" do
       exif = Exif.new(path)
