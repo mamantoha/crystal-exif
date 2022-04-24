@@ -24,6 +24,7 @@ class Exif
 
   private def initialize(@data_ptr : Pointer(LibExif::ExifData))
     LibExif.exif_data_ref(@data_ptr)
+    LibExif.exif_data_fix(@data_ptr)
 
     @mnote_data_ptr = LibExif.exif_data_get_mnote_data(@data_ptr)
     LibExif.exif_mnote_data_ref(@mnote_data_ptr)

@@ -14,6 +14,7 @@ lib LibExif
   fun exif_data_log
   fun exif_data_load_data
   fun exif_data_free
+  fun exif_data_fix
 
   fun exif_mnote_data_ref
   fun exif_mnote_data_unref

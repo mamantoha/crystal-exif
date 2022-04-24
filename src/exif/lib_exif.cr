@@ -60,6 +60,7 @@ lib LibExif
   fun exif_data_log(data : ExifData*, log : ExifLog)
   fun exif_data_load_data(data : ExifData*, d : UInt8*, size : LibC::UInt)
   fun exif_data_free(data : ExifData*)
+  fun exif_data_fix(d : ExifData*)
   fun exif_mnote_data_ref(x0 : ExifMnoteData)
   fun exif_mnote_data_unref(x0 : ExifMnoteData)
   fun exif_mnote_data_load(d : ExifMnoteData, buf : UInt8*, buf_size : LibC::UInt)
