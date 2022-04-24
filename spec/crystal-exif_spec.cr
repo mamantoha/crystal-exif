@@ -61,6 +61,16 @@ describe Exif do
     end
   end
 
+  context "no EXIF data" do
+    it "returns empty data" do
+      file = File.open("#{__DIR__}/fixtures/nan.jpg")
+      exif = Exif.new(file)
+
+      exif.data.should be_empty
+      exif.mnote_data.should be_empty
+    end
+  end
+
   context "instance methods" do
     it ".gps_latitude" do
       exif = Exif.new(path)
