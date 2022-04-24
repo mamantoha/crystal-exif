@@ -53,10 +53,10 @@ describe Exif do
 
   context "issues" do
     it "should ot raise Invalid memory access" do
-      1024.times do |i|
+      1024.times do
         exif = Exif.new(path)
-        data = exif.data
-        mnote_data = exif.mnote_data
+        exif.data
+        exif.mnote_data
       end
     end
   end
