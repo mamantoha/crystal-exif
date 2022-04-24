@@ -4,8 +4,5 @@ file = File.open("#{__DIR__}/../spec/fixtures/metadata_test.jpg")
 path = file.path
 
 exif = Exif.new(path)
-
-pp exif.data
-
-p! exif.gps_latitude
-p! exif.gps_longitude
+mnote_data = exif.mnote_data
+puts mnote_data

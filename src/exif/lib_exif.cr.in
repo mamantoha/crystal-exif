@@ -24,7 +24,6 @@ lib LibExif
   fun exif_mnote_data_get_description
   fun exif_mnote_data_get_value
 
-
   fun exif_content_new
   fun exif_content_get_entry
 
