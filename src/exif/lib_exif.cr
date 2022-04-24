@@ -48,6 +48,7 @@ lib LibExif
   type ExifContentPrivate = Void*
   type ExifDataPrivate = Void*
   fun exif_data_new_from_file(path : LibC::Char*) : ExifData*
+  fun exif_data_new_from_data(data : UInt8*, size : LibC::UInt) : ExifData*
   fun exif_data_ref(data : ExifData*)
   fun exif_data_unref(data : ExifData*)
   type ExifMnoteData = Void*

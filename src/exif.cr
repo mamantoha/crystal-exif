@@ -6,8 +6,23 @@ class Exif
   @data = {} of String => String
   @mnote_data = {} of String => String
 
-  def initialize(@path : String)
-    @data_ptr = LibExif.exif_data_new_from_file(@path)
+  def initialize(path : String)
+    unless File.exists?(path)
+      raise File::NotFoundError.new("Error opening file: '#{path}': No such file", file: path)
+    end
+
+    data_ptr = LibExif.exif_data_new_from_file(path)
+
+    initialize(data_ptr)
+  end
+
+  def initialize(file : File)
+    data_ptr = LibExif.exif_data_new_from_data(File.read(file.path), file.size)
+
+    initialize(data_ptr)
+  end
+
+  private def initialize(@data_ptr : Pointer(LibExif::ExifData))
     LibExif.exif_data_ref(@data_ptr)
 
     @mnote_data_ptr = LibExif.exif_data_get_mnote_data(@data_ptr)
@@ -83,5 +98,6 @@ class Exif
 
   def finalize
     LibExif.exif_data_unref(@data_ptr)
+    LibExif.exif_data_free(@data_ptr)
   end
 end

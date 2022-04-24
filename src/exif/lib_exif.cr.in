@@ -5,6 +5,7 @@
 
 lib LibExif
   fun exif_data_new_from_file
+  fun exif_data_new_from_data
   fun exif_data_ref
   fun exif_data_unref
   fun exif_data_get_mnote_data

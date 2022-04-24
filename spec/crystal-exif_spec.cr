@@ -4,6 +4,30 @@ describe Exif do
   file = File.open("#{__DIR__}/fixtures/metadata_test.jpg")
   path = file.path
 
+  context "initialize" do
+    it "success with a file" do
+      exif = Exif.new(file)
+
+      data = exif.data
+
+      data["compression"].should eq("JPEG compression")
+    end
+
+    it "success with a path" do
+      exif = Exif.new(file.path)
+
+      data = exif.data
+
+      data["compression"].should eq("JPEG compression")
+    end
+
+    it "raise an error if file does not exists" do
+      expect_raises File::NotFoundError, "Error opening file: '/not/found': No such file" do
+        Exif.new("/not/found")
+      end
+    end
+  end
+
   it ".data" do
     exif = Exif.new(path)
 
