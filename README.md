@@ -3,6 +3,7 @@
 [![Crystal CI](https://github.com/mamantoha/crystal-exif/actions/workflows/crystal.yml/badge.svg)](https://github.com/mamantoha/crystal-exif/actions/workflows/crystal.yml)
 
 Crystal C bindings for libexif.
+
 Provides basic support for reading EXIF tags on files using libexif and Crystal.
 
 ## Installation
