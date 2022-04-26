@@ -26,8 +26,12 @@ jobs:
         include:
           - {os: ubuntu-latest, crystal: latest}
           - {os: ubuntu-latest, crystal: nightly}
+          - {os: macos-latest}
     runs-on: ${{ matrix.os }}
     steps:
+      - name: Install libexif
+        if: contains(matrix.os, 'macos')
+        run: brew install libexif
       - name: Install Crystal
         uses: crystal-lang/install-crystal@v1
         with:
