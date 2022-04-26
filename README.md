@@ -38,6 +38,8 @@ This is an example on how to read EXIF data from a file:
 require "crystal-exif"
 ```
 
+![metadata_test.jpg](/spec/fixtures/metadata_test.jpg)
+
 ### Load EXIF data from a JPEG file
 
 ```crystal
