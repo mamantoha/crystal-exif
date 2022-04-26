@@ -5,4 +5,4 @@ path = file.path
 
 exif = Exif.new(path)
 mnote_data = exif.mnote_data
-puts mnote_data
+pp mnote_data
