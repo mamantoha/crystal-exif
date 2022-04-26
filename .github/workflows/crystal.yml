@@ -7,10 +7,6 @@ on:
     - cron: '0 0 * * *'
 
 jobs:
-  mac:
-    runs-on: macos-latest
-    steps:
-    - run: brew install libexif
   check_format:
     runs-on: ubuntu-latest
     steps:
@@ -33,6 +29,8 @@ jobs:
           - {os: macos-latest}
     runs-on: ${{ matrix.os }}
     steps:
+      - name: Install libexif
+        run: brew install libexif
       - name: Install Crystal
         uses: crystal-lang/install-crystal@v1
         with:
