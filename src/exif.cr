@@ -62,7 +62,7 @@ class Exif
 
     num = LibExif.exif_mnote_data_count(@mnote_data_ptr)
 
-    buf = uninitialized UInt8[256]
+    buf = uninitialized UInt8[64]
 
     # Loop through all MakerNote tags
     (0...num).each do |i|
@@ -70,7 +70,7 @@ class Exif
 
       next unless mnote_data_name_ptr
 
-      mnote_data_value_ptr = LibExif.exif_mnote_data_get_value(@mnote_data_ptr, i, pointerof(buf)[i], 64)
+      mnote_data_value_ptr = LibExif.exif_mnote_data_get_value(@mnote_data_ptr, i, pointerof(buf)[0], 64)
       value = String.new(mnote_data_value_ptr)
 
       name = String.new(mnote_data_name_ptr)
