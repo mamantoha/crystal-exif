@@ -39,6 +39,7 @@ require "crystal-exif"
 ```
 
 ![metadata_test.jpg](/spec/fixtures/metadata_test.jpg)
+The image is taken from [exif-samples](https://github.com/ianare/exif-samples) repository.
 
 ### Load EXIF data from a JPEG file
 
