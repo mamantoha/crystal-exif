@@ -49,7 +49,7 @@ exif = Exif.new(file)
 exif.data
 ```
 
-```
+```crystal
 {"compression" => "JPEG compression",
  "image_description" => "",
  "make" => "NIKON",
@@ -123,7 +123,7 @@ exif = Exif.new(file)
 exif.mnote_data
 ```
 
-```
+```crystal
 {"Firmware" => "0210",
  "ISO" => "ISO 0",
  "ColorMode1" => "COLOR",
