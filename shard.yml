@@ -1,12 +1,11 @@
 name: crystal-exif
 version: 0.1.0
+license: MIT
 
 authors:
   - Anton Maminov <anton.maminov@gmail.com>
 
-crystal: 1.4.0
-
-license: MIT
+crystal: ">= 1.0.0"
 
 development_dependencies:
   crystal_lib:
