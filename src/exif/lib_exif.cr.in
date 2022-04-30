@@ -27,7 +27,18 @@ lib LibExif
   fun exif_mnote_data_get_value
 
   fun exif_content_new
+  fun exif_content_new_mem
+  fun exif_content_ref
+  fun exif_content_unref
+  fun exif_content_free
+  fun exif_content_add_entry
+  fun exif_content_remove_entry
   fun exif_content_get_entry
+  fun exif_content_fix
+  fun exif_content_foreach_entry
+  fun exif_content_get_ifd
+  fun exif_content_dump
+  fun exif_content_log
 
   fun exif_entry_get_value
 

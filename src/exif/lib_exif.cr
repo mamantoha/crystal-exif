@@ -71,8 +71,17 @@ lib LibExif
   fun exif_mnote_data_get_description(d : ExifMnoteData, n : LibC::UInt) : LibC::Char*
   fun exif_mnote_data_get_value(d : ExifMnoteData, n : LibC::UInt, val : LibC::Char*, maxlen : LibC::UInt) : LibC::Char*
   fun exif_content_new : ExifContent*
+  type ExifMem = Void*
+  fun exif_content_new_mem(x0 : ExifMem) : ExifContent*
+  fun exif_content_ref(content : ExifContent*)
+  fun exif_content_unref(content : ExifContent*)
+  fun exif_content_free(content : ExifContent*)
+  fun exif_content_add_entry(c : ExifContent*, entry : ExifEntry*)
+  fun exif_content_remove_entry(c : ExifContent*, e : ExifEntry*)
   fun exif_content_get_entry(content : ExifContent*, tag : ExifTag) : ExifEntry*
-  fun exif_entry_get_value(entry : ExifEntry*, val : LibC::Char*, maxlen : LibC::UInt) : LibC::Char*
+  fun exif_content_fix(c : ExifContent*)
+  alias ExifContentForeachEntryFunc = (ExifEntry*, Void* -> Void)
+  fun exif_content_foreach_entry(content : ExifContent*, func : ExifContentForeachEntryFunc, user_data : Void*)
   enum ExifIfd
     ExifIfd0                = 0
     ExifIfd1                = 1
@@ -81,6 +90,10 @@ lib LibExif
     ExifIfdInteroperability = 4
     ExifIfdCount            = 5
   end
+  fun exif_content_get_ifd(c : ExifContent*) : ExifIfd
+  fun exif_content_dump(content : ExifContent*, indent : LibC::UInt)
+  fun exif_content_log(content : ExifContent*, log : ExifLog)
+  fun exif_entry_get_value(entry : ExifEntry*, val : LibC::Char*, maxlen : LibC::UInt) : LibC::Char*
   fun exif_ifd_get_name(ifd : ExifIfd) : LibC::Char*
   fun exif_log_new : ExifLog
   enum ExifLogCode
