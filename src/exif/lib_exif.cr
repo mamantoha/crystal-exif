@@ -29,7 +29,6 @@ lib LibExif
   end
 
   type ExifEntry = X_ExifEntry
-
   enum ExifFormat
     ExifFormatByte      =  1
     ExifFormatAscii     =  2
@@ -47,20 +46,49 @@ lib LibExif
   type ExifEntryPrivate = Void*
   type ExifContentPrivate = Void*
   type ExifDataPrivate = Void*
+  fun exif_data_new : ExifData*
+  type ExifMem = Void*
+  fun exif_data_new_mem(x0 : ExifMem) : ExifData*
   fun exif_data_new_from_file(path : LibC::Char*) : ExifData*
   fun exif_data_new_from_data(data : UInt8*, size : LibC::UInt) : ExifData*
+  fun exif_data_load_data(data : ExifData*, d : UInt8*, size : LibC::UInt)
+  fun exif_data_save_data(data : ExifData*, d : UInt8**, ds : LibC::UInt*)
+  enum ExifByteOrder
+    ExifByteOrderMotorola = 0
+    ExifByteOrderIntel    = 1
+  end
+  fun exif_data_get_byte_order(data : ExifData*) : ExifByteOrder
+  fun exif_data_set_byte_order(data : ExifData*, order : ExifByteOrder)
   fun exif_data_ref(data : ExifData*)
   fun exif_data_unref(data : ExifData*)
+  fun exif_data_free(data : ExifData*)
   type ExifMnoteData = Void*
   fun exif_data_get_mnote_data(d : ExifData*) : ExifMnoteData
+  fun exif_data_fix(d : ExifData*)
   alias ExifDataForeachContentFunc = (ExifContent*, Void* -> Void)
   fun exif_data_foreach_content(data : ExifData*, func : ExifDataForeachContentFunc, user_data : Void*)
-  fun exif_data_new : ExifData*
+  enum ExifDataOption
+    ExifDataOptionIgnoreUnknownTags   = 1
+    ExifDataOptionFollowSpecification = 2
+    ExifDataOptionDontChangeMakerNote = 4
+  end
+  fun exif_data_option_get_name(o : ExifDataOption) : LibC::Char*
+  fun exif_data_option_get_description(o : ExifDataOption) : LibC::Char*
+  fun exif_data_set_option(d : ExifData*, o : ExifDataOption)
+  fun exif_data_unset_option(d : ExifData*, o : ExifDataOption)
+  enum ExifDataType
+    ExifDataTypeUncompressedChunky = 0
+    ExifDataTypeUncompressedPlanar = 1
+    ExifDataTypeUncompressedYcc    = 2
+    ExifDataTypeCompressed         = 3
+    ExifDataTypeCount              = 4
+    ExifDataTypeUnknown            = 4
+  end
+  fun exif_data_set_data_type(d : ExifData*, dt : ExifDataType)
+  fun exif_data_get_data_type(d : ExifData*) : ExifDataType
+  fun exif_data_dump(data : ExifData*)
   type ExifLog = Void*
   fun exif_data_log(data : ExifData*, log : ExifLog)
-  fun exif_data_load_data(data : ExifData*, d : UInt8*, size : LibC::UInt)
-  fun exif_data_free(data : ExifData*)
-  fun exif_data_fix(d : ExifData*)
   fun exif_mnote_data_ref(x0 : ExifMnoteData)
   fun exif_mnote_data_unref(x0 : ExifMnoteData)
   fun exif_mnote_data_load(d : ExifMnoteData, buf : UInt8*, buf_size : LibC::UInt)
@@ -71,7 +99,6 @@ lib LibExif
   fun exif_mnote_data_get_description(d : ExifMnoteData, n : LibC::UInt) : LibC::Char*
   fun exif_mnote_data_get_value(d : ExifMnoteData, n : LibC::UInt, val : LibC::Char*, maxlen : LibC::UInt) : LibC::Char*
   fun exif_content_new : ExifContent*
-  type ExifMem = Void*
   fun exif_content_new_mem(x0 : ExifMem) : ExifContent*
   fun exif_content_ref(content : ExifContent*)
   fun exif_content_unref(content : ExifContent*)

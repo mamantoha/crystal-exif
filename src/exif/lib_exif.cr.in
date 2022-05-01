@@ -4,17 +4,28 @@
 @[Link("libexif")]
 
 lib LibExif
+  fun exif_data_new
+  fun exif_data_new_mem
   fun exif_data_new_from_file
   fun exif_data_new_from_data
+  fun exif_data_load_data
+  fun exif_data_save_data
+  fun exif_data_get_byte_order
+  fun exif_data_set_byte_order
   fun exif_data_ref
   fun exif_data_unref
-  fun exif_data_get_mnote_data
-  fun exif_data_foreach_content
-  fun exif_data_new
-  fun exif_data_log
-  fun exif_data_load_data
   fun exif_data_free
+  fun exif_data_get_mnote_data
   fun exif_data_fix
+  fun exif_data_foreach_content
+  fun exif_data_option_get_name
+  fun exif_data_option_get_description
+  fun exif_data_set_option
+  fun exif_data_unset_option
+  fun exif_data_set_data_type
+  fun exif_data_get_data_type
+  fun exif_data_dump
+  fun exif_data_log
 
   fun exif_mnote_data_ref
   fun exif_mnote_data_unref
