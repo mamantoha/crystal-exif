@@ -30,12 +30,14 @@ lib LibExif
   fun exif_mnote_data_ref
   fun exif_mnote_data_unref
   fun exif_mnote_data_load
+  fun exif_mnote_data_save
   fun exif_mnote_data_count
   fun exif_mnote_data_get_id
   fun exif_mnote_data_get_name
   fun exif_mnote_data_get_title
   fun exif_mnote_data_get_description
   fun exif_mnote_data_get_value
+  fun exif_mnote_data_log
 
   fun exif_content_new
   fun exif_content_new_mem

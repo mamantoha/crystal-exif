@@ -92,12 +92,14 @@ lib LibExif
   fun exif_mnote_data_ref(x0 : ExifMnoteData)
   fun exif_mnote_data_unref(x0 : ExifMnoteData)
   fun exif_mnote_data_load(d : ExifMnoteData, buf : UInt8*, buf_size : LibC::UInt)
+  fun exif_mnote_data_save(d : ExifMnoteData, buf : UInt8**, buf_size : LibC::UInt*)
   fun exif_mnote_data_count(d : ExifMnoteData) : LibC::UInt
   fun exif_mnote_data_get_id(d : ExifMnoteData, n : LibC::UInt) : LibC::UInt
   fun exif_mnote_data_get_name(d : ExifMnoteData, n : LibC::UInt) : LibC::Char*
   fun exif_mnote_data_get_title(d : ExifMnoteData, n : LibC::UInt) : LibC::Char*
   fun exif_mnote_data_get_description(d : ExifMnoteData, n : LibC::UInt) : LibC::Char*
   fun exif_mnote_data_get_value(d : ExifMnoteData, n : LibC::UInt, val : LibC::Char*, maxlen : LibC::UInt) : LibC::Char*
+  fun exif_mnote_data_log(x0 : ExifMnoteData, x1 : ExifLog)
   fun exif_content_new : ExifContent*
   fun exif_content_new_mem(x0 : ExifMem) : ExifContent*
   fun exif_content_ref(content : ExifContent*)
