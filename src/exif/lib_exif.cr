@@ -120,7 +120,15 @@ lib LibExif
   fun exif_content_get_ifd(c : ExifContent*) : ExifIfd
   fun exif_content_dump(content : ExifContent*, indent : LibC::UInt)
   fun exif_content_log(content : ExifContent*, log : ExifLog)
+  fun exif_entry_new : ExifEntry*
+  fun exif_entry_new_mem(x0 : ExifMem) : ExifEntry*
+  fun exif_entry_ref(entry : ExifEntry*)
+  fun exif_entry_unref(entry : ExifEntry*)
+  fun exif_entry_free(entry : ExifEntry*)
+  fun exif_entry_initialize(e : ExifEntry*, tag : ExifTag)
+  fun exif_entry_fix(entry : ExifEntry*)
   fun exif_entry_get_value(entry : ExifEntry*, val : LibC::Char*, maxlen : LibC::UInt) : LibC::Char*
+  fun exif_entry_dump(entry : ExifEntry*, indent : LibC::UInt)
   fun exif_ifd_get_name(ifd : ExifIfd) : LibC::Char*
   fun exif_log_new : ExifLog
   enum ExifLogCode

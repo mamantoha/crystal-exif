@@ -51,7 +51,15 @@ lib LibExif
   fun exif_content_dump
   fun exif_content_log
 
+  fun exif_entry_new
+  fun exif_entry_new_mem
+  fun exif_entry_ref
+  fun exif_entry_unref
+  fun exif_entry_free
+  fun exif_entry_initialize
+  fun exif_entry_fix
   fun exif_entry_get_value
+  fun exif_entry_dump
 
   fun exif_ifd_get_name
 
