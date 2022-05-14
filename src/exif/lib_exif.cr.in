@@ -4,32 +4,64 @@
 @[Link("libexif")]
 
 lib LibExif
+  fun exif_data_new
+  fun exif_data_new_mem
   fun exif_data_new_from_file
   fun exif_data_new_from_data
+  fun exif_data_load_data
+  fun exif_data_save_data
+  fun exif_data_get_byte_order
+  fun exif_data_set_byte_order
   fun exif_data_ref
   fun exif_data_unref
-  fun exif_data_get_mnote_data
-  fun exif_data_foreach_content
-  fun exif_data_new
-  fun exif_data_log
-  fun exif_data_load_data
   fun exif_data_free
+  fun exif_data_get_mnote_data
   fun exif_data_fix
+  fun exif_data_foreach_content
+  fun exif_data_option_get_name
+  fun exif_data_option_get_description
+  fun exif_data_set_option
+  fun exif_data_unset_option
+  fun exif_data_set_data_type
+  fun exif_data_get_data_type
+  fun exif_data_dump
+  fun exif_data_log
 
   fun exif_mnote_data_ref
   fun exif_mnote_data_unref
   fun exif_mnote_data_load
+  fun exif_mnote_data_save
   fun exif_mnote_data_count
   fun exif_mnote_data_get_id
   fun exif_mnote_data_get_name
   fun exif_mnote_data_get_title
   fun exif_mnote_data_get_description
   fun exif_mnote_data_get_value
+  fun exif_mnote_data_log
 
   fun exif_content_new
+  fun exif_content_new_mem
+  fun exif_content_ref
+  fun exif_content_unref
+  fun exif_content_free
+  fun exif_content_add_entry
+  fun exif_content_remove_entry
   fun exif_content_get_entry
+  fun exif_content_fix
+  fun exif_content_foreach_entry
+  fun exif_content_get_ifd
+  fun exif_content_dump
+  fun exif_content_log
 
+  fun exif_entry_new
+  fun exif_entry_new_mem
+  fun exif_entry_ref
+  fun exif_entry_unref
+  fun exif_entry_free
+  fun exif_entry_initialize
+  fun exif_entry_fix
   fun exif_entry_get_value
+  fun exif_entry_dump
 
   fun exif_ifd_get_name
 
