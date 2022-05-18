@@ -28,9 +28,7 @@ class Exif
 
     @mnote_data_ptr = LibExif.exif_data_get_mnote_data(@data_ptr)
 
-    return if @mnote_data_ptr.null?
-
-    LibExif.exif_mnote_data_ref(@mnote_data_ptr)
+    LibExif.exif_mnote_data_ref(@mnote_data_ptr) unless @mnote_data_ptr.null?
 
     load_data
   end
