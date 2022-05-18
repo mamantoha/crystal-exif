@@ -17,4 +17,3 @@ len = data.keys.max_of(&.size)
 data.each do |key, value|
   puts "#{key.ljust(len)} : #{value}"
 end
-
