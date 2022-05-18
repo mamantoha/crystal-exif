@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <img src="data:image/jpeg;base64,<%= encoded %>" width="500">
+
+  <table>
+    <tbody>
+      <% data.each do |key, value| %>
+        <tr>
+          <td><%= key %></td>
+          <td><%= value %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</body>
+
+</html>
