@@ -81,6 +81,17 @@ describe Exif do
 
       data = exif.data
 
+      data.keys.should eq(
+        [
+          "x_resolution",
+          "y_resolution",
+          "resolution_unit",
+          "exif_version",
+          "flash_pix_version",
+          "color_space",
+        ]
+      )
+
       data["x_resolution"].should eq(expected_data["x_resolution"])
       data["y_resolution"].should eq(expected_data["y_resolution"])
       data["resolution_unit"].should eq(expected_data["resolution_unit"])
