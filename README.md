@@ -1,4 +1,4 @@
-# crystal-exif
+# Exif
 
 [![Crystal CI](https://github.com/mamantoha/crystal-exif/actions/workflows/crystal.yml/badge.svg)](https://github.com/mamantoha/crystal-exif/actions/workflows/crystal.yml)
 [![GitHub release](https://img.shields.io/github/release/mamantoha/crystal-exif.svg)](https://github.com/mamantoha/crystal-exif/releases)
@@ -28,7 +28,7 @@ Add the dependency to your `shard.yml`:
 
 ```yaml
 dependencies:
-  crystal-exif:
+  exif:
     github: mamantoha/crystal-exif
 ```
 
@@ -39,7 +39,7 @@ Run `shards install`
 This is an example on how to read EXIF data from a file:
 
 ```crystal
-require "crystal-exif"
+require "exif"
 ```
 
 ![metadata_test.jpg](https://raw.githubusercontent.com/mamantoha/crystal-exif/main/spec/fixtures/metadata_test.jpg)
