@@ -1,3 +1,4 @@
+require "mime"
 require "kemal"
 require "exif"
 
@@ -7,6 +8,9 @@ end
 
 post "/upload" do |env|
   file = env.params.files["fileToUpload"].tempfile
+  filename = env.params.files["fileToUpload"].filename
+
+  mime_type = filename ? MIME.from_filename(filename) : "image/jpeg"
 
   content = file.gets_to_end
   encoded = Base64.encode(content)
