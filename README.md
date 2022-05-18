@@ -42,7 +42,7 @@ This is an example on how to read EXIF data from a file:
 require "crystal-exif"
 ```
 
-![metadata_test.jpg](/spec/fixtures/metadata_test.jpg)
+![metadata_test.jpg](https://raw.githubusercontent.com/mamantoha/crystal-exif/main/spec/fixtures/metadata_test.jpg)
 
 The image is taken from [exif-samples](https://github.com/ianare/exif-samples) repository.
 
