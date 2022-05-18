@@ -65,10 +65,38 @@ describe Exif do
     end
   end
 
-  context "no EXIF mnote data" do
-    it "returns empty mnote data" do
+  context "no EXIF data" do
+    it "returns empty data and mnote data" do
+      expected_data = {
+        "x_resolution"      => "72",
+        "y_resolution"      => "72",
+        "resolution_unit"   => "Inch",
+        "exif_version"      => "Exif Version 2.1",
+        "flash_pix_version" => "FlashPix Version 1.0",
+        "color_space"       => "Uncalibrated",
+      }
+
       file = File.open("#{__DIR__}/fixtures/nan.jpg")
       exif = Exif.new(file)
+
+      data = exif.data
+
+      data.keys.should eq(
+        [
+          "x_resolution",
+          "y_resolution",
+          "resolution_unit",
+          "exif_version",
+          "flash_pix_version",
+          "color_space",
+        ]
+      )
+
+      data["x_resolution"].should eq(expected_data["x_resolution"])
+      data["y_resolution"].should eq(expected_data["y_resolution"])
+      data["resolution_unit"].should eq(expected_data["resolution_unit"])
+      data["exif_version"].should eq(expected_data["exif_version"])
+      data["flash_pix_version"].should eq(expected_data["flash_pix_version"])
 
       exif.mnote_data.should be_empty
     end
