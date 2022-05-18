@@ -67,9 +67,18 @@ describe Exif do
 
   context "no EXIF mnote data" do
     it "returns empty mnote data" do
+      data = {
+        "x_resolution"      => "72",
+        "y_resolution"      => "72",
+        "resolution_unit"   => "Inch",
+        "exif_version"      => "Exif Version 2.1",
+        "flash_pix_version" => "FlashPix Version 1.0",
+        "color_space"       => "Uncalibrated",
+      }
       file = File.open("#{__DIR__}/fixtures/nan.jpg")
       exif = Exif.new(file)
 
+      exif.data.should eq(data)
       exif.mnote_data.should be_empty
     end
   end
