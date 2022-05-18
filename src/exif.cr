@@ -1,6 +1,8 @@
 require "./exif/**"
 
 class Exif
+  VERSION = {{ `shards version #{__DIR__}`.chomp.stringify }}
+
   getter data
 
   @data = {} of String => String

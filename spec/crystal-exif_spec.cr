@@ -4,6 +4,10 @@ describe Exif do
   file = File.open("#{__DIR__}/fixtures/metadata_test.jpg")
   path = file.path
 
+  context Exif::VERSION do
+    Exif::VERSION.should_not be_nil
+  end
+
   context "initialize" do
     it "success with a file" do
       exif = Exif.new(file)
