@@ -3,6 +3,8 @@ require "./exif/**"
 class Exif
   VERSION = {{ `shards version #{__DIR__}`.chomp.stringify }}
 
+  BUFFER_SIZE = 1024
+
   getter data
 
   @data = {} of String => String
@@ -43,7 +45,8 @@ class Exif
   {% end %}
 
   private def load_data
-    buf = uninitialized UInt8[64]
+    buffer = uninitialized UInt8[BUFFER_SIZE]
+    buffer_ptr = buffer.to_unsafe
 
     LibExif::ExifTag.values.each do |tag|
       entry_ptr = exif_data_get_entry(tag)
@@ -52,7 +55,8 @@ class Exif
 
       attr = tag.to_s.lchop("ExifTag").underscore
 
-      value_ptr = LibExif.exif_entry_get_value(entry_ptr, pointerof(buf)[0], 64)
+      value_ptr = LibExif.exif_entry_get_value(entry_ptr, buffer_ptr, BUFFER_SIZE)
+
       value = String.new(value_ptr)
 
       @data[attr] = value.strip
@@ -64,7 +68,8 @@ class Exif
 
     num = LibExif.exif_mnote_data_count(@mnote_data_ptr)
 
-    buf = uninitialized UInt8[64]
+    buffer = uninitialized UInt8[BUFFER_SIZE]
+    buffer_ptr = buffer.to_unsafe
 
     # Loop through all MakerNote tags
     (0...num).each do |i|
@@ -74,7 +79,7 @@ class Exif
 
       name = String.new(mnote_data_name_ptr)
 
-      mnote_data_value_ptr = LibExif.exif_mnote_data_get_value(@mnote_data_ptr, i, pointerof(buf)[0], 64)
+      mnote_data_value_ptr = LibExif.exif_mnote_data_get_value(@mnote_data_ptr, i, buffer_ptr, BUFFER_SIZE)
       value = String.new(mnote_data_value_ptr)
 
       @mnote_data[name] = value.strip
