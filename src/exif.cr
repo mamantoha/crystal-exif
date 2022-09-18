@@ -44,7 +44,7 @@ class Exif
 
   private def load_data
     LibExif::ExifTag.each do |tag, _|
-      attr = tag.to_s.lchop("ExifTag").underscore
+      _attr = tag.to_s
 
       entry = exif_data_get_entry(tag)
 
@@ -55,7 +55,11 @@ class Exif
       value_ptr = LibExif.exif_entry_get_value(entry_ptr, out buf, 64)
       value = String.new(value_ptr)
 
-      @data[attr] = value.strip
+      # FIXME:
+      # p! _attr
+      # _attr # => "Invalid memory access (signal 11) at address 0xc
+
+      @data[tag.to_s.lchop("ExifTag").underscore] = value.strip
     end
   end
 
