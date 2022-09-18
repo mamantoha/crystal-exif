@@ -86,19 +86,12 @@ class Exif
   end
 
   private def exif_data_get_entry(tag : LibExif::ExifTag) : LibExif::ExifEntry*?
-    case
-    when (exif_entry = LibExif.exif_content_get_entry(@data_ptr.value.ifd[LibExif::ExifIfd::ExifIfd0.value], tag))
-      exif_entry
-    when (exif_entry = LibExif.exif_content_get_entry(@data_ptr.value.ifd[LibExif::ExifIfd::ExifIfd1.value], tag))
-      exif_entry
-    when (exif_entry = LibExif.exif_content_get_entry(@data_ptr.value.ifd[LibExif::ExifIfd::ExifIfdExif.value], tag))
-      exif_entry
-    when (exif_entry = LibExif.exif_content_get_entry(@data_ptr.value.ifd[LibExif::ExifIfd::ExifIfdGps.value], tag))
-      exif_entry
-    when (exif_entry = LibExif.exif_content_get_entry(@data_ptr.value.ifd[LibExif::ExifIfd::ExifIfdInteroperability.value], tag))
-      exif_entry
-    else
-      nil
+    ifds = LibExif::ExifIfd.values.reject { |ifd| ifd == LibExif::ExifIfd::ExifIfdCount }
+
+    ifds.each do |ifd|
+      exif_entry = LibExif.exif_content_get_entry(@data_ptr.value.ifd[ifd.value], tag)
+
+      return exif_entry if exif_entry
     end
   end
 
