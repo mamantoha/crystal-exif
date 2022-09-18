@@ -91,7 +91,7 @@ class Exif
   end
 
   private def exif_data_get_entry(tag : LibExif::ExifTag) : LibExif::ExifEntry*?
-    ifds = LibExif::ExifIfd.values.reject { |ifd| ifd == LibExif::ExifIfd::ExifIfdCount }
+    ifds = LibExif::ExifIfd.values.reject(LibExif::ExifIfd::ExifIfdCount)
 
     ifds.each do |ifd|
       exif_entry = LibExif.exif_content_get_entry(@data_ptr.value.ifd[ifd.value], tag)
