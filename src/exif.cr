@@ -43,23 +43,19 @@ class Exif
   {% end %}
 
   private def load_data
-    LibExif::ExifTag.each do |tag, _|
-      _attr = tag.to_s
+    buf = uninitialized UInt8[64]
 
-      entry = exif_data_get_entry(tag)
+    LibExif::ExifTag.values.each do |tag|
+      entry_ptr = exif_data_get_entry(tag)
 
-      next unless entry
+      next unless entry_ptr
 
-      content_ptr, entry_ptr = entry
+      attr = tag.to_s.lchop("ExifTag").underscore
 
-      value_ptr = LibExif.exif_entry_get_value(entry_ptr, out buf, 64)
+      value_ptr = LibExif.exif_entry_get_value(entry_ptr, pointerof(buf)[0], 64)
       value = String.new(value_ptr)
 
-      # FIXME:
-      # p! _attr
-      # _attr # => "Invalid memory access (signal 11) at address 0xc
-
-      @data[tag.to_s.lchop("ExifTag").underscore] = value.strip
+      @data[attr] = value.strip
     end
   end
 
@@ -76,10 +72,10 @@ class Exif
 
       next unless mnote_data_name_ptr
 
+      name = String.new(mnote_data_name_ptr)
+
       mnote_data_value_ptr = LibExif.exif_mnote_data_get_value(@mnote_data_ptr, i, pointerof(buf)[0], 64)
       value = String.new(mnote_data_value_ptr)
-
-      name = String.new(mnote_data_name_ptr)
 
       @mnote_data[name] = value.strip
     end
@@ -89,28 +85,18 @@ class Exif
     LibExif.exif_mnote_data_unref(@mnote_data_ptr)
   end
 
-  private def exif_data_get_entry(tag : LibExif::ExifTag) : Tuple(LibExif::ExifContent*, LibExif::ExifEntry*)?
+  private def exif_data_get_entry(tag : LibExif::ExifTag) : LibExif::ExifEntry*?
     case
     when (exif_entry = LibExif.exif_content_get_entry(@data_ptr.value.ifd[LibExif::ExifIfd::ExifIfd0.value], tag))
-      exif_content = @data_ptr.value.ifd[LibExif::ExifIfd::ExifIfd0.value]
-
-      {exif_content, exif_entry}
+      exif_entry
     when (exif_entry = LibExif.exif_content_get_entry(@data_ptr.value.ifd[LibExif::ExifIfd::ExifIfd1.value], tag))
-      exif_content = @data_ptr.value.ifd[LibExif::ExifIfd::ExifIfd1.value]
-
-      {exif_content, exif_entry}
+      exif_entry
     when (exif_entry = LibExif.exif_content_get_entry(@data_ptr.value.ifd[LibExif::ExifIfd::ExifIfdExif.value], tag))
-      exif_content = @data_ptr.value.ifd[LibExif::ExifIfd::ExifIfdExif.value]
-
-      {exif_content, exif_entry}
+      exif_entry
     when (exif_entry = LibExif.exif_content_get_entry(@data_ptr.value.ifd[LibExif::ExifIfd::ExifIfdGps.value], tag))
-      exif_content = @data_ptr.value.ifd[LibExif::ExifIfd::ExifIfdGps.value]
-
-      {exif_content, exif_entry}
+      exif_entry
     when (exif_entry = LibExif.exif_content_get_entry(@data_ptr.value.ifd[LibExif::ExifIfd::ExifIfdInteroperability.value], tag))
-      exif_content = @data_ptr.value.ifd[LibExif::ExifIfd::ExifIfdInteroperability.value]
-
-      {exif_content, exif_entry}
+      exif_entry
     else
       nil
     end
