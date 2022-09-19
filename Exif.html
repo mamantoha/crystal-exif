@@ -1,0 +1,3814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 1.5.0">
+<meta name="crystal_docs.project_version" content="main">
+<meta name="crystal_docs.project_name" content="exif">
+
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+  <meta name="repository-name" content="exif">
+  <title>Exif - exif main</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          exif
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" current" data-id="exif/Exif" data-name="exif">
+      <a href="Exif.html">Exif</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Exif
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="Exif.html">Exif</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L3" target="_blank">
+        exif.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+      Constant Summary
+    </h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="BUFFER_SIZE">
+        <strong>BUFFER_SIZE</strong> = <code><span class="n">1024</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="VERSION">
+        <strong>VERSION</strong> = <code>{{ (<span class="s">`shards version /home/runner/work/crystal-exif/crystal-exif/src`</span>).chomp.stringify }}</code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28path%3AString%29-class-method" class="signature"><strong>.new</strong>(path : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28file%3AFile%29-class-method" class="signature"><strong>.new</strong>(file : File)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#aperture_value%3AString%3F-instance-method" class="signature"><strong>#aperture_value</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#artist%3AString%3F-instance-method" class="signature"><strong>#artist</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#battery_level%3AString%3F-instance-method" class="signature"><strong>#battery_level</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#bits_per_sample%3AString%3F-instance-method" class="signature"><strong>#bits_per_sample</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#body_serial_number%3AString%3F-instance-method" class="signature"><strong>#body_serial_number</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#brightness_value%3AString%3F-instance-method" class="signature"><strong>#brightness_value</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#camera_owner_name%3AString%3F-instance-method" class="signature"><strong>#camera_owner_name</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#cfa_pattern%3AString%3F-instance-method" class="signature"><strong>#cfa_pattern</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#cfa_repeat_pattern_dim%3AString%3F-instance-method" class="signature"><strong>#cfa_repeat_pattern_dim</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#color_space%3AString%3F-instance-method" class="signature"><strong>#color_space</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#components_configuration%3AString%3F-instance-method" class="signature"><strong>#components_configuration</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#composite_image%3AString%3F-instance-method" class="signature"><strong>#composite_image</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#compressed_bits_per_pixel%3AString%3F-instance-method" class="signature"><strong>#compressed_bits_per_pixel</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#compression%3AString%3F-instance-method" class="signature"><strong>#compression</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#contrast%3AString%3F-instance-method" class="signature"><strong>#contrast</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#copyright%3AString%3F-instance-method" class="signature"><strong>#copyright</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#custom_rendered%3AString%3F-instance-method" class="signature"><strong>#custom_rendered</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#data%3AHash%28String%2CString%29-instance-method" class="signature"><strong>#data</strong> : Hash(String, String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#date_time%3AString%3F-instance-method" class="signature"><strong>#date_time</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#date_time_digitized%3AString%3F-instance-method" class="signature"><strong>#date_time_digitized</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#date_time_original%3AString%3F-instance-method" class="signature"><strong>#date_time_original</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#device_setting_description%3AString%3F-instance-method" class="signature"><strong>#device_setting_description</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#digital_zoom_ratio%3AString%3F-instance-method" class="signature"><strong>#digital_zoom_ratio</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#document_name%3AString%3F-instance-method" class="signature"><strong>#document_name</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#exif_ifd_pointer%3AString%3F-instance-method" class="signature"><strong>#exif_ifd_pointer</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#exif_version%3AString%3F-instance-method" class="signature"><strong>#exif_version</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#exposure_bias_value%3AString%3F-instance-method" class="signature"><strong>#exposure_bias_value</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#exposure_index%3AString%3F-instance-method" class="signature"><strong>#exposure_index</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#exposure_mode%3AString%3F-instance-method" class="signature"><strong>#exposure_mode</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#exposure_program%3AString%3F-instance-method" class="signature"><strong>#exposure_program</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#exposure_time%3AString%3F-instance-method" class="signature"><strong>#exposure_time</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#file_source%3AString%3F-instance-method" class="signature"><strong>#file_source</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#fill_order%3AString%3F-instance-method" class="signature"><strong>#fill_order</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#finalize-instance-method" class="signature"><strong>#finalize</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#flash%3AString%3F-instance-method" class="signature"><strong>#flash</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#flash_energy%3AString%3F-instance-method" class="signature"><strong>#flash_energy</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#flash_pix_version%3AString%3F-instance-method" class="signature"><strong>#flash_pix_version</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#fnumber%3AString%3F-instance-method" class="signature"><strong>#fnumber</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#focal_length%3AString%3F-instance-method" class="signature"><strong>#focal_length</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#focal_length_in35_mm_film%3AString%3F-instance-method" class="signature"><strong>#focal_length_in35_mm_film</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#focal_plane_resolution_unit%3AString%3F-instance-method" class="signature"><strong>#focal_plane_resolution_unit</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#focal_plane_x_resolution%3AString%3F-instance-method" class="signature"><strong>#focal_plane_x_resolution</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#focal_plane_y_resolution%3AString%3F-instance-method" class="signature"><strong>#focal_plane_y_resolution</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gain_control%3AString%3F-instance-method" class="signature"><strong>#gain_control</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gamma%3AString%3F-instance-method" class="signature"><strong>#gamma</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gp_altitude_ref%3AString%3F-instance-method" class="signature"><strong>#gp_altitude_ref</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_altitude%3AString%3F-instance-method" class="signature"><strong>#gps_altitude</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_area_information%3AString%3F-instance-method" class="signature"><strong>#gps_area_information</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_date_stamp%3AString%3F-instance-method" class="signature"><strong>#gps_date_stamp</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_dest_bearing%3AString%3F-instance-method" class="signature"><strong>#gps_dest_bearing</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_dest_bearing_ref%3AString%3F-instance-method" class="signature"><strong>#gps_dest_bearing_ref</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_dest_distance%3AString%3F-instance-method" class="signature"><strong>#gps_dest_distance</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_dest_distance_ref%3AString%3F-instance-method" class="signature"><strong>#gps_dest_distance_ref</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_dest_latitude%3AString%3F-instance-method" class="signature"><strong>#gps_dest_latitude</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_dest_latitude_ref%3AString%3F-instance-method" class="signature"><strong>#gps_dest_latitude_ref</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_dest_longitude%3AString%3F-instance-method" class="signature"><strong>#gps_dest_longitude</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_dest_longitude_ref%3AString%3F-instance-method" class="signature"><strong>#gps_dest_longitude_ref</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_differential%3AString%3F-instance-method" class="signature"><strong>#gps_differential</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_dop%3AString%3F-instance-method" class="signature"><strong>#gps_dop</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_h_positioning_error%3AString%3F-instance-method" class="signature"><strong>#gps_h_positioning_error</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_img_direction%3AString%3F-instance-method" class="signature"><strong>#gps_img_direction</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_img_direction_ref%3AString%3F-instance-method" class="signature"><strong>#gps_img_direction_ref</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_info_ifd_pointer%3AString%3F-instance-method" class="signature"><strong>#gps_info_ifd_pointer</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_latitude%3AString%3F-instance-method" class="signature"><strong>#gps_latitude</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_latitude_ref%3AString%3F-instance-method" class="signature"><strong>#gps_latitude_ref</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_longitude%3AString%3F-instance-method" class="signature"><strong>#gps_longitude</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_longitude_ref%3AString%3F-instance-method" class="signature"><strong>#gps_longitude_ref</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_map_datum%3AString%3F-instance-method" class="signature"><strong>#gps_map_datum</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_measure_mode%3AString%3F-instance-method" class="signature"><strong>#gps_measure_mode</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_processing_method%3AString%3F-instance-method" class="signature"><strong>#gps_processing_method</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_satellites%3AString%3F-instance-method" class="signature"><strong>#gps_satellites</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_speed%3AString%3F-instance-method" class="signature"><strong>#gps_speed</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_speed_ref%3AString%3F-instance-method" class="signature"><strong>#gps_speed_ref</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_status%3AString%3F-instance-method" class="signature"><strong>#gps_status</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_time_stamp%3AString%3F-instance-method" class="signature"><strong>#gps_time_stamp</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_track%3AString%3F-instance-method" class="signature"><strong>#gps_track</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_track_ref%3AString%3F-instance-method" class="signature"><strong>#gps_track_ref</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gps_version_id%3AString%3F-instance-method" class="signature"><strong>#gps_version_id</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#image_depth%3AString%3F-instance-method" class="signature"><strong>#image_depth</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#image_description%3AString%3F-instance-method" class="signature"><strong>#image_description</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#image_length%3AString%3F-instance-method" class="signature"><strong>#image_length</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#image_resources%3AString%3F-instance-method" class="signature"><strong>#image_resources</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#image_unique_id%3AString%3F-instance-method" class="signature"><strong>#image_unique_id</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#image_width%3AString%3F-instance-method" class="signature"><strong>#image_width</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#inter_color_profile%3AString%3F-instance-method" class="signature"><strong>#inter_color_profile</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#interoperability_ifd_pointer%3AString%3F-instance-method" class="signature"><strong>#interoperability_ifd_pointer</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#iptc_naa%3AString%3F-instance-method" class="signature"><strong>#iptc_naa</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#iso_speed%3AString%3F-instance-method" class="signature"><strong>#iso_speed</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#iso_speed_latitude_yyy%3AString%3F-instance-method" class="signature"><strong>#iso_speed_latitude_yyy</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#iso_speed_latitude_zzz%3AString%3F-instance-method" class="signature"><strong>#iso_speed_latitude_zzz</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#iso_speed_ratings%3AString%3F-instance-method" class="signature"><strong>#iso_speed_ratings</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#jpeg_interchange_format%3AString%3F-instance-method" class="signature"><strong>#jpeg_interchange_format</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#jpeg_interchange_format_length%3AString%3F-instance-method" class="signature"><strong>#jpeg_interchange_format_length</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#jpeg_proc%3AString%3F-instance-method" class="signature"><strong>#jpeg_proc</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#lens_make%3AString%3F-instance-method" class="signature"><strong>#lens_make</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#lens_model%3AString%3F-instance-method" class="signature"><strong>#lens_model</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#lens_serial_number%3AString%3F-instance-method" class="signature"><strong>#lens_serial_number</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#lens_specification%3AString%3F-instance-method" class="signature"><strong>#lens_specification</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#light_source%3AString%3F-instance-method" class="signature"><strong>#light_source</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#make%3AString%3F-instance-method" class="signature"><strong>#make</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#maker_note%3AString%3F-instance-method" class="signature"><strong>#maker_note</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#max_aperture_value%3AString%3F-instance-method" class="signature"><strong>#max_aperture_value</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#metering_mode%3AString%3F-instance-method" class="signature"><strong>#metering_mode</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#mnote_data%3AHash%28String%2CString%29-instance-method" class="signature"><strong>#mnote_data</strong> : Hash(String, String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#model%3AString%3F-instance-method" class="signature"><strong>#model</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new_cfa_pattern%3AString%3F-instance-method" class="signature"><strong>#new_cfa_pattern</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new_subfile_type%3AString%3F-instance-method" class="signature"><strong>#new_subfile_type</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#oecf%3AString%3F-instance-method" class="signature"><strong>#oecf</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#offset_time%3AString%3F-instance-method" class="signature"><strong>#offset_time</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#offset_time_digitized%3AString%3F-instance-method" class="signature"><strong>#offset_time_digitized</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#offset_time_original%3AString%3F-instance-method" class="signature"><strong>#offset_time_original</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#orientation%3AString%3F-instance-method" class="signature"><strong>#orientation</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#padding%3AString%3F-instance-method" class="signature"><strong>#padding</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#photometric_interpretation%3AString%3F-instance-method" class="signature"><strong>#photometric_interpretation</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#pixel_x_dimension%3AString%3F-instance-method" class="signature"><strong>#pixel_x_dimension</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#pixel_y_dimension%3AString%3F-instance-method" class="signature"><strong>#pixel_y_dimension</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#planar_configuration%3AString%3F-instance-method" class="signature"><strong>#planar_configuration</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#primary_chromaticities%3AString%3F-instance-method" class="signature"><strong>#primary_chromaticities</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#print_image_matching%3AString%3F-instance-method" class="signature"><strong>#print_image_matching</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#recommended_exposure_index%3AString%3F-instance-method" class="signature"><strong>#recommended_exposure_index</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reference_black_white%3AString%3F-instance-method" class="signature"><strong>#reference_black_white</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#related_image_file_format%3AString%3F-instance-method" class="signature"><strong>#related_image_file_format</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#related_image_length%3AString%3F-instance-method" class="signature"><strong>#related_image_length</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#related_image_width%3AString%3F-instance-method" class="signature"><strong>#related_image_width</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#related_sound_file%3AString%3F-instance-method" class="signature"><strong>#related_sound_file</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#resolution_unit%3AString%3F-instance-method" class="signature"><strong>#resolution_unit</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#rows_per_strip%3AString%3F-instance-method" class="signature"><strong>#rows_per_strip</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#samples_per_pixel%3AString%3F-instance-method" class="signature"><strong>#samples_per_pixel</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#saturation%3AString%3F-instance-method" class="signature"><strong>#saturation</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#scene_capture_type%3AString%3F-instance-method" class="signature"><strong>#scene_capture_type</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#scene_type%3AString%3F-instance-method" class="signature"><strong>#scene_type</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#sensing_method%3AString%3F-instance-method" class="signature"><strong>#sensing_method</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#sensitivity_type%3AString%3F-instance-method" class="signature"><strong>#sensitivity_type</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#sharpness%3AString%3F-instance-method" class="signature"><strong>#sharpness</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#shutter_speed_value%3AString%3F-instance-method" class="signature"><strong>#shutter_speed_value</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#software%3AString%3F-instance-method" class="signature"><strong>#software</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#source_exposure_times_of_composite_image%3AString%3F-instance-method" class="signature"><strong>#source_exposure_times_of_composite_image</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#source_image_number_of_composite_image%3AString%3F-instance-method" class="signature"><strong>#source_image_number_of_composite_image</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#spatial_frequency_response%3AString%3F-instance-method" class="signature"><strong>#spatial_frequency_response</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#spectral_sensitivity%3AString%3F-instance-method" class="signature"><strong>#spectral_sensitivity</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#standard_output_sensitivity%3AString%3F-instance-method" class="signature"><strong>#standard_output_sensitivity</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#strip_byte_counts%3AString%3F-instance-method" class="signature"><strong>#strip_byte_counts</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#strip_offsets%3AString%3F-instance-method" class="signature"><strong>#strip_offsets</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#sub_ifds%3AString%3F-instance-method" class="signature"><strong>#sub_ifds</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#sub_sec_time%3AString%3F-instance-method" class="signature"><strong>#sub_sec_time</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#sub_sec_time_digitized%3AString%3F-instance-method" class="signature"><strong>#sub_sec_time_digitized</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#sub_sec_time_original%3AString%3F-instance-method" class="signature"><strong>#sub_sec_time_original</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subject_area%3AString%3F-instance-method" class="signature"><strong>#subject_area</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subject_distance%3AString%3F-instance-method" class="signature"><strong>#subject_distance</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subject_distance_range%3AString%3F-instance-method" class="signature"><strong>#subject_distance_range</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subject_location%3AString%3F-instance-method" class="signature"><strong>#subject_location</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#tiff_ep_standard_id%3AString%3F-instance-method" class="signature"><strong>#tiff_ep_standard_id</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#time_zone_offset%3AString%3F-instance-method" class="signature"><strong>#time_zone_offset</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#transfer_function%3AString%3F-instance-method" class="signature"><strong>#transfer_function</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#transfer_range%3AString%3F-instance-method" class="signature"><strong>#transfer_range</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#user_comment%3AString%3F-instance-method" class="signature"><strong>#user_comment</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#white_balance%3AString%3F-instance-method" class="signature"><strong>#white_balance</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#white_point%3AString%3F-instance-method" class="signature"><strong>#white_point</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#x_resolution%3AString%3F-instance-method" class="signature"><strong>#x_resolution</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#xml_packet%3AString%3F-instance-method" class="signature"><strong>#xml_packet</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#xp_author%3AString%3F-instance-method" class="signature"><strong>#xp_author</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#xp_comment%3AString%3F-instance-method" class="signature"><strong>#xp_comment</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#xp_keywords%3AString%3F-instance-method" class="signature"><strong>#xp_keywords</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#xp_subject%3AString%3F-instance-method" class="signature"><strong>#xp_subject</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#xp_title%3AString%3F-instance-method" class="signature"><strong>#xp_title</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#y_resolution%3AString%3F-instance-method" class="signature"><strong>#y_resolution</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ycbcr_coefficients%3AString%3F-instance-method" class="signature"><strong>#ycbcr_coefficients</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ycbcr_positioning%3AString%3F-instance-method" class="signature"><strong>#ycbcr_positioning</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ycbcr_sub_sampling%3AString%3F-instance-method" class="signature"><strong>#ycbcr_sub_sampling</strong> : String?</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(path:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(path : String)
+
+        <a class="method-permalink" href="#new%28path%3AString%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L13" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(file:File)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(file : File)
+
+        <a class="method-permalink" href="#new%28file%3AFile%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L23" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="aperture_value:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>aperture_value</strong> : String?
+
+        <a class="method-permalink" href="#aperture_value%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="artist:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>artist</strong> : String?
+
+        <a class="method-permalink" href="#artist%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="battery_level:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>battery_level</strong> : String?
+
+        <a class="method-permalink" href="#battery_level%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="bits_per_sample:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>bits_per_sample</strong> : String?
+
+        <a class="method-permalink" href="#bits_per_sample%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="body_serial_number:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>body_serial_number</strong> : String?
+
+        <a class="method-permalink" href="#body_serial_number%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="brightness_value:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>brightness_value</strong> : String?
+
+        <a class="method-permalink" href="#brightness_value%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="camera_owner_name:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>camera_owner_name</strong> : String?
+
+        <a class="method-permalink" href="#camera_owner_name%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="cfa_pattern:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>cfa_pattern</strong> : String?
+
+        <a class="method-permalink" href="#cfa_pattern%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="cfa_repeat_pattern_dim:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>cfa_repeat_pattern_dim</strong> : String?
+
+        <a class="method-permalink" href="#cfa_repeat_pattern_dim%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="color_space:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>color_space</strong> : String?
+
+        <a class="method-permalink" href="#color_space%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="components_configuration:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>components_configuration</strong> : String?
+
+        <a class="method-permalink" href="#components_configuration%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="composite_image:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>composite_image</strong> : String?
+
+        <a class="method-permalink" href="#composite_image%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="compressed_bits_per_pixel:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>compressed_bits_per_pixel</strong> : String?
+
+        <a class="method-permalink" href="#compressed_bits_per_pixel%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="compression:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>compression</strong> : String?
+
+        <a class="method-permalink" href="#compression%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="contrast:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>contrast</strong> : String?
+
+        <a class="method-permalink" href="#contrast%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="copyright:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>copyright</strong> : String?
+
+        <a class="method-permalink" href="#copyright%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="custom_rendered:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>custom_rendered</strong> : String?
+
+        <a class="method-permalink" href="#custom_rendered%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="data:Hash(String,String)-instance-method">
+      <div class="signature">
+        
+        def <strong>data</strong> : Hash(String, String)
+
+        <a class="method-permalink" href="#data%3AHash%28String%2CString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L8" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="date_time:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>date_time</strong> : String?
+
+        <a class="method-permalink" href="#date_time%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="date_time_digitized:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>date_time_digitized</strong> : String?
+
+        <a class="method-permalink" href="#date_time_digitized%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="date_time_original:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>date_time_original</strong> : String?
+
+        <a class="method-permalink" href="#date_time_original%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="device_setting_description:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>device_setting_description</strong> : String?
+
+        <a class="method-permalink" href="#device_setting_description%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="digital_zoom_ratio:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>digital_zoom_ratio</strong> : String?
+
+        <a class="method-permalink" href="#digital_zoom_ratio%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="document_name:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>document_name</strong> : String?
+
+        <a class="method-permalink" href="#document_name%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="exif_ifd_pointer:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>exif_ifd_pointer</strong> : String?
+
+        <a class="method-permalink" href="#exif_ifd_pointer%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="exif_version:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>exif_version</strong> : String?
+
+        <a class="method-permalink" href="#exif_version%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="exposure_bias_value:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>exposure_bias_value</strong> : String?
+
+        <a class="method-permalink" href="#exposure_bias_value%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="exposure_index:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>exposure_index</strong> : String?
+
+        <a class="method-permalink" href="#exposure_index%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="exposure_mode:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>exposure_mode</strong> : String?
+
+        <a class="method-permalink" href="#exposure_mode%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="exposure_program:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>exposure_program</strong> : String?
+
+        <a class="method-permalink" href="#exposure_program%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="exposure_time:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>exposure_time</strong> : String?
+
+        <a class="method-permalink" href="#exposure_time%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="file_source:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>file_source</strong> : String?
+
+        <a class="method-permalink" href="#file_source%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="fill_order:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>fill_order</strong> : String?
+
+        <a class="method-permalink" href="#fill_order%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="finalize-instance-method">
+      <div class="signature">
+        
+        def <strong>finalize</strong>
+
+        <a class="method-permalink" href="#finalize-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L103" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="flash:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>flash</strong> : String?
+
+        <a class="method-permalink" href="#flash%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="flash_energy:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>flash_energy</strong> : String?
+
+        <a class="method-permalink" href="#flash_energy%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="flash_pix_version:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>flash_pix_version</strong> : String?
+
+        <a class="method-permalink" href="#flash_pix_version%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="fnumber:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>fnumber</strong> : String?
+
+        <a class="method-permalink" href="#fnumber%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="focal_length:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>focal_length</strong> : String?
+
+        <a class="method-permalink" href="#focal_length%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="focal_length_in35_mm_film:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>focal_length_in35_mm_film</strong> : String?
+
+        <a class="method-permalink" href="#focal_length_in35_mm_film%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="focal_plane_resolution_unit:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>focal_plane_resolution_unit</strong> : String?
+
+        <a class="method-permalink" href="#focal_plane_resolution_unit%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="focal_plane_x_resolution:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>focal_plane_x_resolution</strong> : String?
+
+        <a class="method-permalink" href="#focal_plane_x_resolution%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="focal_plane_y_resolution:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>focal_plane_y_resolution</strong> : String?
+
+        <a class="method-permalink" href="#focal_plane_y_resolution%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gain_control:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gain_control</strong> : String?
+
+        <a class="method-permalink" href="#gain_control%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gamma:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gamma</strong> : String?
+
+        <a class="method-permalink" href="#gamma%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gp_altitude_ref:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gp_altitude_ref</strong> : String?
+
+        <a class="method-permalink" href="#gp_altitude_ref%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_altitude:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_altitude</strong> : String?
+
+        <a class="method-permalink" href="#gps_altitude%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_area_information:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_area_information</strong> : String?
+
+        <a class="method-permalink" href="#gps_area_information%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_date_stamp:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_date_stamp</strong> : String?
+
+        <a class="method-permalink" href="#gps_date_stamp%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_dest_bearing:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_dest_bearing</strong> : String?
+
+        <a class="method-permalink" href="#gps_dest_bearing%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_dest_bearing_ref:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_dest_bearing_ref</strong> : String?
+
+        <a class="method-permalink" href="#gps_dest_bearing_ref%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_dest_distance:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_dest_distance</strong> : String?
+
+        <a class="method-permalink" href="#gps_dest_distance%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_dest_distance_ref:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_dest_distance_ref</strong> : String?
+
+        <a class="method-permalink" href="#gps_dest_distance_ref%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_dest_latitude:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_dest_latitude</strong> : String?
+
+        <a class="method-permalink" href="#gps_dest_latitude%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_dest_latitude_ref:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_dest_latitude_ref</strong> : String?
+
+        <a class="method-permalink" href="#gps_dest_latitude_ref%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_dest_longitude:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_dest_longitude</strong> : String?
+
+        <a class="method-permalink" href="#gps_dest_longitude%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_dest_longitude_ref:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_dest_longitude_ref</strong> : String?
+
+        <a class="method-permalink" href="#gps_dest_longitude_ref%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_differential:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_differential</strong> : String?
+
+        <a class="method-permalink" href="#gps_differential%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_dop:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_dop</strong> : String?
+
+        <a class="method-permalink" href="#gps_dop%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_h_positioning_error:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_h_positioning_error</strong> : String?
+
+        <a class="method-permalink" href="#gps_h_positioning_error%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_img_direction:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_img_direction</strong> : String?
+
+        <a class="method-permalink" href="#gps_img_direction%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_img_direction_ref:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_img_direction_ref</strong> : String?
+
+        <a class="method-permalink" href="#gps_img_direction_ref%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_info_ifd_pointer:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_info_ifd_pointer</strong> : String?
+
+        <a class="method-permalink" href="#gps_info_ifd_pointer%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_latitude:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_latitude</strong> : String?
+
+        <a class="method-permalink" href="#gps_latitude%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_latitude_ref:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_latitude_ref</strong> : String?
+
+        <a class="method-permalink" href="#gps_latitude_ref%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_longitude:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_longitude</strong> : String?
+
+        <a class="method-permalink" href="#gps_longitude%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_longitude_ref:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_longitude_ref</strong> : String?
+
+        <a class="method-permalink" href="#gps_longitude_ref%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_map_datum:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_map_datum</strong> : String?
+
+        <a class="method-permalink" href="#gps_map_datum%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_measure_mode:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_measure_mode</strong> : String?
+
+        <a class="method-permalink" href="#gps_measure_mode%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_processing_method:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_processing_method</strong> : String?
+
+        <a class="method-permalink" href="#gps_processing_method%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_satellites:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_satellites</strong> : String?
+
+        <a class="method-permalink" href="#gps_satellites%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_speed:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_speed</strong> : String?
+
+        <a class="method-permalink" href="#gps_speed%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_speed_ref:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_speed_ref</strong> : String?
+
+        <a class="method-permalink" href="#gps_speed_ref%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_status:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_status</strong> : String?
+
+        <a class="method-permalink" href="#gps_status%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_time_stamp:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_time_stamp</strong> : String?
+
+        <a class="method-permalink" href="#gps_time_stamp%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_track:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_track</strong> : String?
+
+        <a class="method-permalink" href="#gps_track%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_track_ref:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_track_ref</strong> : String?
+
+        <a class="method-permalink" href="#gps_track_ref%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gps_version_id:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>gps_version_id</strong> : String?
+
+        <a class="method-permalink" href="#gps_version_id%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="image_depth:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>image_depth</strong> : String?
+
+        <a class="method-permalink" href="#image_depth%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="image_description:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>image_description</strong> : String?
+
+        <a class="method-permalink" href="#image_description%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="image_length:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>image_length</strong> : String?
+
+        <a class="method-permalink" href="#image_length%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="image_resources:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>image_resources</strong> : String?
+
+        <a class="method-permalink" href="#image_resources%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="image_unique_id:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>image_unique_id</strong> : String?
+
+        <a class="method-permalink" href="#image_unique_id%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="image_width:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>image_width</strong> : String?
+
+        <a class="method-permalink" href="#image_width%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="inter_color_profile:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>inter_color_profile</strong> : String?
+
+        <a class="method-permalink" href="#inter_color_profile%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="interoperability_ifd_pointer:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>interoperability_ifd_pointer</strong> : String?
+
+        <a class="method-permalink" href="#interoperability_ifd_pointer%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="iptc_naa:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>iptc_naa</strong> : String?
+
+        <a class="method-permalink" href="#iptc_naa%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="iso_speed:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>iso_speed</strong> : String?
+
+        <a class="method-permalink" href="#iso_speed%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="iso_speed_latitude_yyy:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>iso_speed_latitude_yyy</strong> : String?
+
+        <a class="method-permalink" href="#iso_speed_latitude_yyy%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="iso_speed_latitude_zzz:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>iso_speed_latitude_zzz</strong> : String?
+
+        <a class="method-permalink" href="#iso_speed_latitude_zzz%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="iso_speed_ratings:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>iso_speed_ratings</strong> : String?
+
+        <a class="method-permalink" href="#iso_speed_ratings%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="jpeg_interchange_format:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>jpeg_interchange_format</strong> : String?
+
+        <a class="method-permalink" href="#jpeg_interchange_format%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="jpeg_interchange_format_length:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>jpeg_interchange_format_length</strong> : String?
+
+        <a class="method-permalink" href="#jpeg_interchange_format_length%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="jpeg_proc:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>jpeg_proc</strong> : String?
+
+        <a class="method-permalink" href="#jpeg_proc%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="lens_make:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>lens_make</strong> : String?
+
+        <a class="method-permalink" href="#lens_make%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="lens_model:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>lens_model</strong> : String?
+
+        <a class="method-permalink" href="#lens_model%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="lens_serial_number:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>lens_serial_number</strong> : String?
+
+        <a class="method-permalink" href="#lens_serial_number%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="lens_specification:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>lens_specification</strong> : String?
+
+        <a class="method-permalink" href="#lens_specification%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="light_source:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>light_source</strong> : String?
+
+        <a class="method-permalink" href="#light_source%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="make:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>make</strong> : String?
+
+        <a class="method-permalink" href="#make%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="maker_note:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>maker_note</strong> : String?
+
+        <a class="method-permalink" href="#maker_note%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="max_aperture_value:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>max_aperture_value</strong> : String?
+
+        <a class="method-permalink" href="#max_aperture_value%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="metering_mode:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>metering_mode</strong> : String?
+
+        <a class="method-permalink" href="#metering_mode%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="mnote_data:Hash(String,String)-instance-method">
+      <div class="signature">
+        
+        def <strong>mnote_data</strong> : Hash(String, String)
+
+        <a class="method-permalink" href="#mnote_data%3AHash%28String%2CString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L66" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="model:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>model</strong> : String?
+
+        <a class="method-permalink" href="#model%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new_cfa_pattern:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>new_cfa_pattern</strong> : String?
+
+        <a class="method-permalink" href="#new_cfa_pattern%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new_subfile_type:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>new_subfile_type</strong> : String?
+
+        <a class="method-permalink" href="#new_subfile_type%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="oecf:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>oecf</strong> : String?
+
+        <a class="method-permalink" href="#oecf%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="offset_time:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>offset_time</strong> : String?
+
+        <a class="method-permalink" href="#offset_time%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="offset_time_digitized:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>offset_time_digitized</strong> : String?
+
+        <a class="method-permalink" href="#offset_time_digitized%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="offset_time_original:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>offset_time_original</strong> : String?
+
+        <a class="method-permalink" href="#offset_time_original%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="orientation:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>orientation</strong> : String?
+
+        <a class="method-permalink" href="#orientation%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="padding:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>padding</strong> : String?
+
+        <a class="method-permalink" href="#padding%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="photometric_interpretation:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>photometric_interpretation</strong> : String?
+
+        <a class="method-permalink" href="#photometric_interpretation%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="pixel_x_dimension:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>pixel_x_dimension</strong> : String?
+
+        <a class="method-permalink" href="#pixel_x_dimension%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="pixel_y_dimension:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>pixel_y_dimension</strong> : String?
+
+        <a class="method-permalink" href="#pixel_y_dimension%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="planar_configuration:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>planar_configuration</strong> : String?
+
+        <a class="method-permalink" href="#planar_configuration%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="primary_chromaticities:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>primary_chromaticities</strong> : String?
+
+        <a class="method-permalink" href="#primary_chromaticities%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="print_image_matching:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>print_image_matching</strong> : String?
+
+        <a class="method-permalink" href="#print_image_matching%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="recommended_exposure_index:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>recommended_exposure_index</strong> : String?
+
+        <a class="method-permalink" href="#recommended_exposure_index%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reference_black_white:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>reference_black_white</strong> : String?
+
+        <a class="method-permalink" href="#reference_black_white%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="related_image_file_format:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>related_image_file_format</strong> : String?
+
+        <a class="method-permalink" href="#related_image_file_format%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="related_image_length:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>related_image_length</strong> : String?
+
+        <a class="method-permalink" href="#related_image_length%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="related_image_width:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>related_image_width</strong> : String?
+
+        <a class="method-permalink" href="#related_image_width%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="related_sound_file:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>related_sound_file</strong> : String?
+
+        <a class="method-permalink" href="#related_sound_file%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="resolution_unit:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>resolution_unit</strong> : String?
+
+        <a class="method-permalink" href="#resolution_unit%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="rows_per_strip:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>rows_per_strip</strong> : String?
+
+        <a class="method-permalink" href="#rows_per_strip%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="samples_per_pixel:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>samples_per_pixel</strong> : String?
+
+        <a class="method-permalink" href="#samples_per_pixel%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="saturation:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>saturation</strong> : String?
+
+        <a class="method-permalink" href="#saturation%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="scene_capture_type:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>scene_capture_type</strong> : String?
+
+        <a class="method-permalink" href="#scene_capture_type%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="scene_type:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>scene_type</strong> : String?
+
+        <a class="method-permalink" href="#scene_type%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sensing_method:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>sensing_method</strong> : String?
+
+        <a class="method-permalink" href="#sensing_method%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sensitivity_type:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>sensitivity_type</strong> : String?
+
+        <a class="method-permalink" href="#sensitivity_type%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sharpness:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>sharpness</strong> : String?
+
+        <a class="method-permalink" href="#sharpness%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="shutter_speed_value:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>shutter_speed_value</strong> : String?
+
+        <a class="method-permalink" href="#shutter_speed_value%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="software:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>software</strong> : String?
+
+        <a class="method-permalink" href="#software%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="source_exposure_times_of_composite_image:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>source_exposure_times_of_composite_image</strong> : String?
+
+        <a class="method-permalink" href="#source_exposure_times_of_composite_image%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="source_image_number_of_composite_image:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>source_image_number_of_composite_image</strong> : String?
+
+        <a class="method-permalink" href="#source_image_number_of_composite_image%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="spatial_frequency_response:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>spatial_frequency_response</strong> : String?
+
+        <a class="method-permalink" href="#spatial_frequency_response%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="spectral_sensitivity:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>spectral_sensitivity</strong> : String?
+
+        <a class="method-permalink" href="#spectral_sensitivity%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="standard_output_sensitivity:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>standard_output_sensitivity</strong> : String?
+
+        <a class="method-permalink" href="#standard_output_sensitivity%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="strip_byte_counts:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>strip_byte_counts</strong> : String?
+
+        <a class="method-permalink" href="#strip_byte_counts%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="strip_offsets:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>strip_offsets</strong> : String?
+
+        <a class="method-permalink" href="#strip_offsets%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sub_ifds:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>sub_ifds</strong> : String?
+
+        <a class="method-permalink" href="#sub_ifds%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sub_sec_time:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>sub_sec_time</strong> : String?
+
+        <a class="method-permalink" href="#sub_sec_time%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sub_sec_time_digitized:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>sub_sec_time_digitized</strong> : String?
+
+        <a class="method-permalink" href="#sub_sec_time_digitized%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sub_sec_time_original:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>sub_sec_time_original</strong> : String?
+
+        <a class="method-permalink" href="#sub_sec_time_original%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subject_area:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>subject_area</strong> : String?
+
+        <a class="method-permalink" href="#subject_area%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subject_distance:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>subject_distance</strong> : String?
+
+        <a class="method-permalink" href="#subject_distance%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subject_distance_range:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>subject_distance_range</strong> : String?
+
+        <a class="method-permalink" href="#subject_distance_range%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subject_location:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>subject_location</strong> : String?
+
+        <a class="method-permalink" href="#subject_location%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tiff_ep_standard_id:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>tiff_ep_standard_id</strong> : String?
+
+        <a class="method-permalink" href="#tiff_ep_standard_id%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="time_zone_offset:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>time_zone_offset</strong> : String?
+
+        <a class="method-permalink" href="#time_zone_offset%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="transfer_function:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>transfer_function</strong> : String?
+
+        <a class="method-permalink" href="#transfer_function%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="transfer_range:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>transfer_range</strong> : String?
+
+        <a class="method-permalink" href="#transfer_range%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="user_comment:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>user_comment</strong> : String?
+
+        <a class="method-permalink" href="#user_comment%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="white_balance:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>white_balance</strong> : String?
+
+        <a class="method-permalink" href="#white_balance%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="white_point:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>white_point</strong> : String?
+
+        <a class="method-permalink" href="#white_point%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="x_resolution:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>x_resolution</strong> : String?
+
+        <a class="method-permalink" href="#x_resolution%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="xml_packet:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>xml_packet</strong> : String?
+
+        <a class="method-permalink" href="#xml_packet%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="xp_author:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>xp_author</strong> : String?
+
+        <a class="method-permalink" href="#xp_author%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="xp_comment:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>xp_comment</strong> : String?
+
+        <a class="method-permalink" href="#xp_comment%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="xp_keywords:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>xp_keywords</strong> : String?
+
+        <a class="method-permalink" href="#xp_keywords%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="xp_subject:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>xp_subject</strong> : String?
+
+        <a class="method-permalink" href="#xp_subject%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="xp_title:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>xp_title</strong> : String?
+
+        <a class="method-permalink" href="#xp_title%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="y_resolution:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>y_resolution</strong> : String?
+
+        <a class="method-permalink" href="#y_resolution%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ycbcr_coefficients:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>ycbcr_coefficients</strong> : String?
+
+        <a class="method-permalink" href="#ycbcr_coefficients%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ycbcr_positioning:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>ycbcr_positioning</strong> : String?
+
+        <a class="method-permalink" href="#ycbcr_positioning%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ycbcr_sub_sampling:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>ycbcr_sub_sampling</strong> : String?
+
+        <a class="method-permalink" href="#ycbcr_sub_sampling%3AString%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/mamantoha/crystal-exif/blob/18bc59eec4c28a721f09e9ef9bd5937f2f983473/src/exif.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
