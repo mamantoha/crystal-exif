@@ -53,6 +53,10 @@ describe Exif do
 
     mnote_data["Firmware"].should eq("0210")
     mnote_data["CaptureEditorVer"].should eq("COOLPIX P6000V1.0")
+
+    3.times do
+      exif.mnote_data.should eq(mnote_data)
+    end
   end
 
   context "issues" do
@@ -98,7 +102,9 @@ describe Exif do
       data["exif_version"].should eq(expected_data["exif_version"])
       data["flash_pix_version"].should eq(expected_data["flash_pix_version"])
 
-      exif.mnote_data.should be_empty
+      3.times do
+        exif.mnote_data.should be_empty
+      end
     end
   end
 

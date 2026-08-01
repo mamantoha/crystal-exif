@@ -9,6 +9,7 @@ class Exif
 
   @data = {} of String => String
   @mnote_data = {} of String => String
+  @mnote_data_loaded = false
 
   def initialize(path : String)
     unless File.exists?(path)
@@ -31,8 +32,6 @@ class Exif
     LibExif.exif_data_fix(@data_ptr)
 
     @mnote_data_ptr = LibExif.exif_data_get_mnote_data(@data_ptr)
-
-    LibExif.exif_mnote_data_ref(@mnote_data_ptr) unless @mnote_data_ptr.null?
 
     load_data
   end
@@ -64,7 +63,7 @@ class Exif
   end
 
   def mnote_data : Hash(String, String)
-    return @mnote_data unless @mnote_data.empty?
+    return @mnote_data if @mnote_data_loaded
 
     num = LibExif.exif_mnote_data_count(@mnote_data_ptr)
 
@@ -85,9 +84,8 @@ class Exif
       @mnote_data[name] = value.strip
     end
 
+    @mnote_data_loaded = true
     @mnote_data
-  ensure
-    LibExif.exif_mnote_data_unref(@mnote_data_ptr)
   end
 
   private def exif_data_get_entry(tag : LibExif::ExifTag) : LibExif::ExifEntry*?
