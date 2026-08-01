@@ -57,6 +57,17 @@ lib LibExif
     ExifByteOrderMotorola = 0
     ExifByteOrderIntel    = 1
   end
+
+  struct ExifRational
+    numerator : UInt32
+    denominator : UInt32
+  end
+
+  struct ExifSRational
+    numerator : Int32
+    denominator : Int32
+  end
+
   fun exif_data_get_byte_order(data : ExifData*) : ExifByteOrder
   fun exif_data_set_byte_order(data : ExifData*, order : ExifByteOrder)
   fun exif_data_ref(data : ExifData*)
@@ -150,4 +161,10 @@ lib LibExif
   fun exif_loader_write(loader : ExifLoader, buf : UInt8*, sz : LibC::UInt) : UInt8
   fun exif_loader_get_data(loader : ExifLoader) : ExifData*
   fun exif_loader_unref(loader : ExifLoader)
+  fun exif_get_short(b : UInt8*, order : ExifByteOrder) : UInt16
+  fun exif_get_sshort(b : UInt8*, order : ExifByteOrder) : Int16
+  fun exif_get_long(b : UInt8*, order : ExifByteOrder) : UInt32
+  fun exif_get_slong(b : UInt8*, order : ExifByteOrder) : Int32
+  fun exif_get_rational(b : UInt8*, order : ExifByteOrder) : ExifRational
+  fun exif_get_srational(b : UInt8*, order : ExifByteOrder) : ExifSRational
 end

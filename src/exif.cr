@@ -93,6 +93,10 @@ class Exif
     end
   end
 
+  def byte_order : LibExif::ExifByteOrder
+    LibExif.exif_data_get_byte_order(@data_ptr)
+  end
+
   private def load_data
     LibExif::ExifTag.values.each do |tag|
       entry = entry(tag)

@@ -23,6 +23,10 @@ class Exif
     load_data
     @data
   end
+
+  def byte_order_for_spec=(order : LibExif::ExifByteOrder)
+    LibExif.exif_data_set_byte_order(@data_ptr, order)
+  end
 end
 
 describe Exif do
@@ -135,6 +139,54 @@ describe Exif do
       GC.collect
 
       entry.display_value.should eq("COOLPIX P6000")
+    end
+
+    it "decodes typed numeric values" do
+      exif = Exif.new(path)
+
+      exif.entry(LibExif::ExifTag::ExifTagOrientation).as(Exif::Entry).short.should eq(1_u16)
+      exif.entry(LibExif::ExifTag::ExifTagPixelXDimension).as(Exif::Entry).long.should eq(640_u32)
+
+      resolution = exif.entry(LibExif::ExifTag::ExifTagXResolution).as(Exif::Entry).rational
+      resolution.numerator.should eq(300_u32)
+      resolution.denominator.should eq(1_u32)
+
+      exposure_bias = exif.entry(LibExif::ExifTag::ExifTagExposureBiasValue).as(Exif::Entry).srational
+      exposure_bias.numerator.should eq(0)
+      exposure_bias.denominator.should eq(10)
+
+      latitude = exif.entry(LibExif::ExifTag::ExifTagGpsLatitude).as(Exif::Entry)
+      latitude.rational(0).numerator.should eq(43_u32)
+      latitude.rational(1).numerator.should eq(28_u32)
+      latitude.rational(2).numerator.should eq(281_400_000_u32)
+    end
+
+    it "respects the EXIF byte order" do
+      exif = Exif.new(path)
+      entry = exif.entry(LibExif::ExifTag::ExifTagPixelXDimension).as(Exif::Entry)
+
+      exif.byte_order.should eq(LibExif::ExifByteOrder::ExifByteOrderIntel)
+      entry.raw_bytes.should eq(Bytes[128, 2, 0, 0])
+
+      exif.byte_order_for_spec = LibExif::ExifByteOrder::ExifByteOrderMotorola
+
+      exif.byte_order.should eq(LibExif::ExifByteOrder::ExifByteOrderMotorola)
+      entry.raw_bytes.should eq(Bytes[0, 0, 2, 128])
+      entry.long.should eq(640_u32)
+    end
+
+    it "rejects incompatible formats and component indexes" do
+      exif = Exif.new(path)
+      orientation = exif.entry(LibExif::ExifTag::ExifTagOrientation).as(Exif::Entry)
+      latitude = exif.entry(LibExif::ExifTag::ExifTagGpsLatitude).as(Exif::Entry)
+
+      expect_raises(Exif::Error, /Cannot decode .*ExifFormatShort.*ExifFormatLong/) do
+        orientation.long
+      end
+
+      expect_raises(Exif::Error, "Component index 3 is out of bounds for 3 components") do
+        latitude.rational(3)
+      end
     end
   end
 

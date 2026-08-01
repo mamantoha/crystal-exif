@@ -1,5 +1,6 @@
 @[Include("libexif/exif-content.h")]
 @[Include("libexif/exif-loader.h")]
+@[Include("libexif/exif-utils.h")]
 
 @[Link("exif", pkg_config: "libexif")]
 
@@ -75,4 +76,11 @@ lib LibExif
   fun exif_loader_write
   fun exif_loader_get_data
   fun exif_loader_unref
+
+  fun exif_get_short
+  fun exif_get_sshort
+  fun exif_get_long
+  fun exif_get_slong
+  fun exif_get_rational
+  fun exif_get_srational
 end

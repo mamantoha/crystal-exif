@@ -144,6 +144,18 @@ if entry
 end
 ```
 
+Numeric entries can be decoded according to their format and byte order:
+
+```crystal
+orientation = exif.entry(LibExif::ExifTag::ExifTagOrientation)
+orientation.try &.short # => 1
+
+latitude = exif.entry(LibExif::ExifTag::ExifTagGpsLatitude)
+latitude.try &.rational(0) # => LibExif::ExifRational(@numerator=43, @denominator=1)
+```
+
+Available numeric decoders are `short`, `sshort`, `long`, `slong`, `rational`, and `srational`.
+
 Use `entries` to access every entry, including tags that occur in more than one IFD.
 
 ### Return the MakerNote data out of the EXIF data
