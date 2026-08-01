@@ -28,15 +28,76 @@
         <p class="hint">Try another image captured by a camera or phone.</p>
       </section>
     <% else %>
-      <section class="card">
-        <h2>Image details</h2>
+      <section class="card metadata-section">
+        <div class="section-heading">
+          <h2>EXIF values</h2>
+          <span class="count"><%= data.size %> values</span>
+        </div>
         <div class="table-scroll">
           <table>
             <tbody>
               <% data.each do |key, value| %>
                 <tr>
-                  <td><%= key %></td>
-                  <td><%= value %></td>
+                  <td><%= HTML.escape(key) %></td>
+                  <td><%= HTML.escape(value) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <% unless mnote_data.empty? %>
+        <section class="card metadata-section">
+          <div class="section-heading">
+            <h2>MakerNote values</h2>
+            <span class="count"><%= mnote_data.size %> values</span>
+          </div>
+          <p class="hint">Camera-manufacturer metadata decoded by libexif.</p>
+          <div class="table-scroll">
+            <table>
+              <tbody>
+                <% mnote_data.each do |key, value| %>
+                  <tr>
+                    <td><%= HTML.escape(key) %></td>
+                    <td><%= HTML.escape(value) %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      <% end %>
+
+      <section class="card metadata-section">
+        <div class="section-heading">
+          <h2>Entry details</h2>
+          <span class="count"><%= entries.size %> entries</span>
+        </div>
+        <p class="hint">Byte order: <strong><%= byte_order %></strong>. Raw data is limited to the first <%= RAW_PREVIEW_SIZE %> bytes per entry.</p>
+        <div class="table-scroll">
+          <table class="entry-table">
+            <thead>
+              <tr>
+                <th scope="col">Tag</th>
+                <th scope="col">IFD</th>
+                <th scope="col">Format</th>
+                <th scope="col">Components</th>
+                <th scope="col">Size</th>
+                <th scope="col">Value</th>
+                <th scope="col">Raw bytes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% entries.each do |entry| %>
+                <tr>
+                  <td><%= HTML.escape(entry.tag) %> <span class="tag-id">(<%= entry.tag_id %>)</span></td>
+                  <td><%= HTML.escape(entry.ifd) %></td>
+                  <td><%= HTML.escape(entry.format) %></td>
+                  <td><%= entry.components %></td>
+                  <td><%= entry.size %> B</td>
+                  <td><%= HTML.escape(entry.value) %></td>
+                  <td><code><%= entry.raw_bytes %><%= "…" if entry.raw_truncated %></code></td>
                 </tr>
               <% end %>
             </tbody>

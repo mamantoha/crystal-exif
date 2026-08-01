@@ -9,7 +9,7 @@ shards:
     version: 0.5.0
 
   exif:
-    git: https://github.com/mamantoha/crystal-exif.git
+    path: ../..
     version: 0.5.0
 
   kemal:

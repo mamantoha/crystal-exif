@@ -172,6 +172,27 @@ a:focus-visible {
   margin-bottom: 0;
 }
 
+.metadata-section + .metadata-section {
+  margin-top: 1.5rem;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.count {
+  flex: none;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  color: #1d4ed8;
+  background: #dbeafe;
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
 .table-scroll {
   overflow-x: auto;
   border: 1px solid #e2e8f0;
@@ -184,11 +205,20 @@ table {
   font-size: 0.95rem;
 }
 
+th,
 td {
   padding: 0.8rem 1rem;
   border-bottom: 1px solid #e2e8f0;
+  text-align: left;
   vertical-align: top;
   overflow-wrap: anywhere;
+}
+
+th {
+  color: #334155;
+  background: #eaf0f8;
+  font-size: 0.8rem;
+  white-space: nowrap;
 }
 
 tr:last-child td {
@@ -205,6 +235,28 @@ td:first-child {
   font-weight: 650;
 }
 
+.entry-table {
+  min-width: 72rem;
+}
+
+.entry-table td:first-child {
+  width: auto;
+  min-width: 12rem;
+}
+
+.entry-table code {
+  display: block;
+  max-width: 28rem;
+  color: #475569;
+  font-size: 0.75rem;
+  overflow-wrap: anywhere;
+}
+
+.tag-id {
+  color: #64748b;
+  font-weight: 400;
+}
+
 @media (max-width: 36rem) {
   .page {
     padding: 1.5rem 0;
@@ -215,18 +267,18 @@ td:first-child {
     flex-direction: column;
   }
 
-  td {
+  table:not(.entry-table) td {
     display: block;
     width: 100%;
     border-bottom: 0;
   }
 
-  td:first-child {
+  table:not(.entry-table) td:first-child {
     width: 100%;
     padding-bottom: 0.2rem;
   }
 
-  td:last-child {
+  table:not(.entry-table) td:last-child {
     padding-top: 0.2rem;
     border-bottom: 1px solid #e2e8f0;
   }
