@@ -120,6 +120,25 @@ exif.make # => "NIKON"
 exif.model # => "COOLPIX P6000"
 ```
 
+### Read typed EXIF entries
+
+Use `entry` when the tag's IFD, format, components, or raw bytes are needed:
+
+```crystal
+exif = Exif.new("metadata_test.jpg")
+entry = exif.entry(LibExif::ExifTag::ExifTagModel)
+
+if entry
+  entry.ifd           # => LibExif::ExifIfd::ExifIfd0
+  entry.format        # => LibExif::ExifFormat::ExifFormatAscii
+  entry.components    # => 14
+  entry.raw_bytes     # => Bytes[67, 79, 79, ...]
+  entry.display_value # => "COOLPIX P6000"
+end
+```
+
+Use `entries` to access every entry, including tags that occur in more than one IFD.
+
 ### Return the MakerNote data out of the EXIF data
 
 ```crystal

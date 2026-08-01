@@ -45,19 +45,46 @@ class Exif
     end
   {% end %}
 
+  def entries : Array(Entry)
+    entries = [] of Entry
+
+    LibExif::ExifIfd.values.each do |ifd|
+      next if ifd == LibExif::ExifIfd::ExifIfdCount
+
+      content = @data_ptr.value.ifd[ifd.value]
+      next if content.null?
+
+      content.value.count.times do |index|
+        entry_ptr = content.value.entries[index]
+        next if entry_ptr.null?
+
+        entries << Entry.new(self, ifd, entry_ptr)
+      end
+    end
+
+    entries
+  end
+
+  def entry(tag : LibExif::ExifTag, ifd : LibExif::ExifIfd? = nil) : Entry?
+    if ifd
+      return entry_in_ifd(tag, ifd)
+    end
+
+    exif_ifds(tag).each do |candidate_ifd|
+      if found_entry = entry_in_ifd(tag, candidate_ifd)
+        return found_entry
+      end
+    end
+  end
+
   private def load_data
     LibExif::ExifTag.values.each do |tag|
-      entry_ptr = exif_data_get_entry(tag)
+      entry = entry(tag)
 
-      next unless entry_ptr
+      next unless entry
 
       attr = tag.to_s.lchop("ExifTag").underscore
-
-      value = read_value do |buffer, maxlen|
-        LibExif.exif_entry_get_value(entry_ptr, buffer, maxlen)
-      end
-
-      @data[attr] = value.strip
+      @data[attr] = entry.display_value.strip
     end
   end
 
@@ -100,12 +127,12 @@ class Exif
     end
   end
 
-  private def exif_data_get_entry(tag : LibExif::ExifTag) : LibExif::ExifEntry*?
-    exif_ifds(tag).each do |ifd|
-      exif_entry = LibExif.exif_content_get_entry(@data_ptr.value.ifd[ifd.value], tag)
+  private def entry_in_ifd(tag : LibExif::ExifTag, ifd : LibExif::ExifIfd) : Entry?
+    content = @data_ptr.value.ifd[ifd.value]
+    return if content.null?
 
-      return exif_entry if exif_entry
-    end
+    entry_ptr = LibExif.exif_content_get_entry(content, tag)
+    Entry.new(self, ifd, entry_ptr) unless entry_ptr.null?
   end
 
   private def exif_ifds(tag : LibExif::ExifTag) : Array(LibExif::ExifIfd)

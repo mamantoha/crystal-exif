@@ -87,6 +87,45 @@ describe Exif do
     data["gps_altitude_ref"].should eq("Sea level")
   end
 
+  describe "#entry" do
+    it "returns a typed entry" do
+      exif = Exif.new(path)
+      entry = exif.entry(LibExif::ExifTag::ExifTagModel).as(Exif::Entry)
+
+      entry.tag.should eq(LibExif::ExifTag::ExifTagModel)
+      entry.ifd.should eq(LibExif::ExifIfd::ExifIfd0)
+      entry.format.should eq(LibExif::ExifFormat::ExifFormatAscii)
+      entry.components.should eq(entry.raw_bytes.size)
+      entry.display_value.should eq("COOLPIX P6000")
+      String.new(entry.raw_bytes.to_unsafe).should eq("COOLPIX P6000")
+    end
+
+    it "can restrict lookup to an IFD" do
+      exif = Exif.new(path)
+      tag = LibExif::ExifTag::ExifTagGpsLatitude
+
+      exif.entry(tag, LibExif::ExifIfd::ExifIfd0).should be_nil
+      entry = exif.entry(tag, LibExif::ExifIfd::ExifIfdGps).as(Exif::Entry)
+      entry.ifd.should eq(LibExif::ExifIfd::ExifIfdGps)
+    end
+
+    it "keeps its EXIF data alive" do
+      entry = Exif.new(path).entry(LibExif::ExifTag::ExifTagModel).as(Exif::Entry)
+
+      GC.collect
+
+      entry.display_value.should eq("COOLPIX P6000")
+    end
+  end
+
+  it "#entries" do
+    entries = Exif.new(path).entries
+
+    entries.should_not be_empty
+    entries.any? { |entry| entry.tag == LibExif::ExifTag::ExifTagModel }.should be_true
+    entries.none? { |entry| entry.ifd == LibExif::ExifIfd::ExifIfdCount }.should be_true
+  end
+
   it "#mnote_data" do
     exif = Exif.new(path)
 
