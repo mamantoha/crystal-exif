@@ -37,10 +37,10 @@ jobs:
     steps:
       - name: Install libexif on Ubuntu
         if: contains(matrix.os, 'ubuntu')
-        run: sudo apt-get update && sudo apt-get install -y libexif-dev
+        run: sudo apt-get update && sudo apt-get install -y libexif-dev pkg-config
       - name: Install libexif on macOS
         if: contains(matrix.os, 'macos')
-        run: brew install libexif
+        run: brew install libexif pkgconf
       - name: Install Crystal
         uses: crystal-lang/install-crystal@v1
         with:

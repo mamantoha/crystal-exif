@@ -1,4 +1,4 @@
-@[Link("exif")]
+@[Link("exif", pkg_config: "libexif")]
 lib LibExif
   struct X_ExifData
     ifd : ExifContent*[5]

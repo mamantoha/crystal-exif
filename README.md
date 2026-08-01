@@ -15,10 +15,10 @@ Get libexif for your OS:
 
 ```
 # MacOS
-brew install libexif
+brew install libexif pkgconf
 
 # Debian/Ubuntu
-apt-get install -y libexif-dev
+apt-get install -y libexif-dev pkg-config
 
 # RedHat/Fedora
 dnf install -y libexif-devel
