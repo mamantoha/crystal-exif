@@ -1,7 +1,7 @@
 @[Include("libexif/exif-content.h")]
 @[Include("libexif/exif-loader.h")]
 
-@[Link("libexif")]
+@[Link("exif")]
 
 lib LibExif
   fun exif_data_new

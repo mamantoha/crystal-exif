@@ -1,4 +1,4 @@
-@[Link("libexif")]
+@[Link("exif")]
 lib LibExif
   struct X_ExifData
     ifd : ExifContent*[5]
