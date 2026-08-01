@@ -26,8 +26,7 @@ class Exif
 end
 
 describe Exif do
-  file = File.open("#{__DIR__}/fixtures/metadata_test.jpg")
-  path = file.path
+  path = "#{__DIR__}/fixtures/metadata_test.jpg"
 
   context Exif::VERSION do
     Exif::VERSION.should_not be_nil
@@ -35,15 +34,17 @@ describe Exif do
 
   context "initialize" do
     it "success with a file" do
-      exif = Exif.new(file)
+      File.open(path) do |file|
+        exif = Exif.new(file)
 
-      data = exif.data
+        data = exif.data
 
-      data["compression"].should eq("JPEG compression")
+        data["compression"].should eq("JPEG compression")
+      end
     end
 
     it "success with a path" do
-      exif = Exif.new(file.path)
+      exif = Exif.new(path)
 
       data = exif.data
 
@@ -59,6 +60,14 @@ describe Exif do
     it "raises an error if EXIF data cannot be loaded" do
       expect_raises Exif::Error, "Unable to load EXIF data" do
         Exif.new("#{__DIR__}/fixtures/nan.jpg")
+      end
+    end
+
+    it "raises the same error for a file without EXIF data" do
+      File.open("#{__DIR__}/fixtures/nan.jpg") do |file|
+        expect_raises Exif::Error, "Unable to load EXIF data" do
+          Exif.new(file)
+        end
       end
     end
   end
@@ -114,45 +123,6 @@ describe Exif do
       value = "x" * (Exif::BUFFER_SIZE * 2)
 
       exif.read_value_for_spec(value).should eq(value)
-    end
-  end
-
-  context "no EXIF data" do
-    it "returns empty data and mnote data" do
-      expected_data = {
-        "x_resolution"      => "72",
-        "y_resolution"      => "72",
-        "resolution_unit"   => "Inch",
-        "exif_version"      => "Exif Version 2.1",
-        "flash_pix_version" => "FlashPix Version 1.0",
-        "color_space"       => "Uncalibrated",
-      }
-
-      file = File.open("#{__DIR__}/fixtures/nan.jpg")
-      exif = Exif.new(file)
-
-      data = exif.data
-
-      data.keys.should eq(
-        [
-          "x_resolution",
-          "y_resolution",
-          "resolution_unit",
-          "exif_version",
-          "flash_pix_version",
-          "color_space",
-        ]
-      )
-
-      data["x_resolution"].should eq(expected_data["x_resolution"])
-      data["y_resolution"].should eq(expected_data["y_resolution"])
-      data["resolution_unit"].should eq(expected_data["resolution_unit"])
-      data["exif_version"].should eq(expected_data["exif_version"])
-      data["flash_pix_version"].should eq(expected_data["flash_pix_version"])
-
-      3.times do
-        exif.mnote_data.should be_empty
-      end
     end
   end
 

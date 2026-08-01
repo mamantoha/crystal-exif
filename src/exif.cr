@@ -25,9 +25,7 @@ class Exif
   end
 
   def initialize(file : File)
-    data_ptr = LibExif.exif_data_new_from_data(File.read(file.path), file.size)
-
-    initialize(data_ptr)
+    initialize(file.path)
   end
 
   private def initialize(@data_ptr : Pointer(LibExif::ExifData))
