@@ -1,6 +1,17 @@
 require "./spec_helper"
 
 class Exif
+  def read_value_for_spec(value : String) : String
+    bytes = value.to_slice
+
+    read_value do |buffer, maxlen|
+      count = Math.min(bytes.size, maxlen.to_i - 1)
+      bytes.to_unsafe.copy_to(buffer, count)
+      buffer[count] = 0_u8
+      buffer
+    end
+  end
+
   def remove_gps_entries_and_reload
     content = @data_ptr.value.ifd[LibExif::ExifIfd::ExifIfdGps.value]
 
@@ -96,6 +107,13 @@ describe Exif do
 
       data["gps_latitude_ref"]?.should be_nil
       data["gps_latitude"]?.should be_nil
+    end
+
+    it "does not truncate values larger than the initial buffer" do
+      exif = Exif.new(path)
+      value = "x" * (Exif::BUFFER_SIZE * 2)
+
+      exif.read_value_for_spec(value).should eq(value)
     end
   end
 

@@ -48,9 +48,6 @@ class Exif
   {% end %}
 
   private def load_data
-    buffer = uninitialized UInt8[BUFFER_SIZE]
-    buffer_ptr = buffer.to_unsafe
-
     LibExif::ExifTag.values.each do |tag|
       entry_ptr = exif_data_get_entry(tag)
 
@@ -58,9 +55,9 @@ class Exif
 
       attr = tag.to_s.lchop("ExifTag").underscore
 
-      value_ptr = LibExif.exif_entry_get_value(entry_ptr, buffer_ptr, BUFFER_SIZE)
-
-      value = String.new(value_ptr)
+      value = read_value do |buffer, maxlen|
+        LibExif.exif_entry_get_value(entry_ptr, buffer, maxlen)
+      end
 
       @data[attr] = value.strip
     end
@@ -71,9 +68,6 @@ class Exif
 
     num = LibExif.exif_mnote_data_count(@mnote_data_ptr)
 
-    buffer = uninitialized UInt8[BUFFER_SIZE]
-    buffer_ptr = buffer.to_unsafe
-
     # Loop through all MakerNote tags
     (0...num).each do |i|
       mnote_data_name_ptr = LibExif.exif_mnote_data_get_name(@mnote_data_ptr, i)
@@ -82,14 +76,30 @@ class Exif
 
       name = String.new(mnote_data_name_ptr)
 
-      mnote_data_value_ptr = LibExif.exif_mnote_data_get_value(@mnote_data_ptr, i, buffer_ptr, BUFFER_SIZE)
-      value = String.new(mnote_data_value_ptr)
+      value = read_value do |buffer, maxlen|
+        LibExif.exif_mnote_data_get_value(@mnote_data_ptr, i, buffer, maxlen)
+      end
 
       @mnote_data[name] = value.strip
     end
 
     @mnote_data_loaded = true
     @mnote_data
+  end
+
+  private def read_value(& : UInt8*, LibC::UInt -> UInt8*) : String
+    buffer_size = BUFFER_SIZE
+
+    loop do
+      buffer = Bytes.new(buffer_size)
+      value_ptr = yield buffer.to_unsafe, buffer_size.to_u32
+      return "" if value_ptr.null?
+
+      value = String.new(value_ptr)
+      return value if value.bytesize < buffer_size - 1
+
+      buffer_size *= 2
+    end
   end
 
   private def exif_data_get_entry(tag : LibExif::ExifTag) : LibExif::ExifEntry*?
