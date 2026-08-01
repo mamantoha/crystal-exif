@@ -1,5 +1,19 @@
 require "./spec_helper"
 
+class Exif
+  def remove_gps_entries_and_reload
+    content = @data_ptr.value.ifd[LibExif::ExifIfd::ExifIfdGps.value]
+
+    while content.value.count > 0
+      LibExif.exif_content_remove_entry(content, content.value.entries[0])
+    end
+
+    @data.clear
+    load_data
+    @data
+  end
+end
+
 describe Exif do
   file = File.open("#{__DIR__}/fixtures/metadata_test.jpg")
   path = file.path
@@ -73,6 +87,15 @@ describe Exif do
         exif.data
         exif.mnote_data
       end
+    end
+
+    it "does not read interoperability tags as GPS tags" do
+      exif = Exif.new(path)
+
+      data = exif.remove_gps_entries_and_reload
+
+      data["gps_latitude_ref"]?.should be_nil
+      data["gps_latitude"]?.should be_nil
     end
   end
 

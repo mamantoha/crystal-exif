@@ -65,6 +65,8 @@ lib LibExif
 
   fun exif_ifd_get_name
 
+  fun exif_tag_get_name_in_ifd
+
   fun exif_log_new
   fun exif_log_set_func
   fun exif_log_unref

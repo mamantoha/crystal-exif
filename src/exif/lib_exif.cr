@@ -132,6 +132,7 @@ lib LibExif
   fun exif_entry_get_value(entry : ExifEntry*, val : LibC::Char*, maxlen : LibC::UInt) : LibC::Char*
   fun exif_entry_dump(entry : ExifEntry*, indent : LibC::UInt)
   fun exif_ifd_get_name(ifd : ExifIfd) : LibC::Char*
+  fun exif_tag_get_name_in_ifd(tag : ExifTag, ifd : ExifIfd) : LibC::Char*
   fun exif_log_new : ExifLog
   enum ExifLogCode
     ExifLogCodeNone        = 0

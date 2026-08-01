@@ -93,12 +93,20 @@ class Exif
   end
 
   private def exif_data_get_entry(tag : LibExif::ExifTag) : LibExif::ExifEntry*?
-    ifds = LibExif::ExifIfd.values.reject(LibExif::ExifIfd::ExifIfdCount)
-
-    ifds.each do |ifd|
+    exif_ifds(tag).each do |ifd|
       exif_entry = LibExif.exif_content_get_entry(@data_ptr.value.ifd[ifd.value], tag)
 
       return exif_entry if exif_entry
+    end
+  end
+
+  private def exif_ifds(tag : LibExif::ExifTag) : Array(LibExif::ExifIfd)
+    if tag.to_s.starts_with?("ExifTagGps")
+      return [LibExif::ExifIfd::ExifIfdGps]
+    end
+
+    LibExif::ExifIfd.values.reject do |ifd|
+      ifd == LibExif::ExifIfd::ExifIfdCount || LibExif.exif_tag_get_name_in_ifd(tag, ifd).null?
     end
   end
 
