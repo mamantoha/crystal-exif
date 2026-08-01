@@ -160,6 +160,18 @@ a:focus-visible {
   object-fit: contain;
 }
 
+.empty-state {
+  text-align: center;
+}
+
+.empty-state h2 {
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p:last-child {
+  margin-bottom: 0;
+}
+
 .table-scroll {
   overflow-x: auto;
   border: 1px solid #e2e8f0;

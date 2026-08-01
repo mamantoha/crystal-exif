@@ -18,24 +18,32 @@
     </header>
 
     <section class="card preview-card" aria-label="Uploaded image preview">
-      <img src="data:<%= mime_type %>>;base64,<%= encoded %>" width="500" alt="Uploaded image">
+      <img src="data:<%= mime_type %>;base64,<%= encoded %>" width="500" alt="Uploaded image">
     </section>
 
-    <section class="card">
-      <h2>Image details</h2>
-      <div class="table-scroll">
-        <table>
-          <tbody>
-            <% data.each do |key, value| %>
-              <tr>
-                <td><%= key %></td>
-                <td><%= value %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    </section>
+    <% if error_message %>
+      <section class="card empty-state" role="status">
+        <h2>No EXIF metadata found</h2>
+        <p><%= error_message %></p>
+        <p class="hint">Try another image captured by a camera or phone.</p>
+      </section>
+    <% else %>
+      <section class="card">
+        <h2>Image details</h2>
+        <div class="table-scroll">
+          <table>
+            <tbody>
+              <% data.each do |key, value| %>
+                <tr>
+                  <td><%= key %></td>
+                  <td><%= value %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    <% end %>
   </main>
 </body>
 

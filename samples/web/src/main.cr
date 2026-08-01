@@ -15,9 +15,16 @@ post "/upload" do |env|
   content = file.gets_to_end
   encoded = Base64.encode(content)
 
-  exif = Exif.new(file)
-  data = exif.data
-  data = data.transform_keys(&.camelcase)
+  data = {} of String => String
+  error_message = nil
+
+  begin
+    file.rewind
+    exif = Exif.new(file)
+    data = exif.data.transform_keys(&.camelcase)
+  rescue Exif::Error
+    error_message = "This image does not contain readable EXIF metadata."
+  end
 
   render "src/views/show.ecr"
 end
