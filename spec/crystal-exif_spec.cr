@@ -43,6 +43,20 @@ describe Exif do
       end
     end
 
+    it "initializes with bytes" do
+      exif = Exif.new(File.read(path).to_slice)
+
+      exif.model.should eq("COOLPIX P6000")
+    end
+
+    it "initializes with an IO" do
+      io = IO::Memory.new(File.read(path))
+      exif = Exif.new(io)
+
+      exif.model.should eq("COOLPIX P6000")
+      io.pos.should eq(io.size)
+    end
+
     it "initializes with a path" do
       exif = Exif.new(path)
 
@@ -68,6 +82,12 @@ describe Exif do
         expect_raises Exif::Error, "Unable to load EXIF data" do
           Exif.new(file)
         end
+      end
+    end
+
+    it "raises the same error for bytes without EXIF data" do
+      expect_raises Exif::Error, "Unable to load EXIF data" do
+        Exif.new(Bytes.empty)
       end
     end
   end

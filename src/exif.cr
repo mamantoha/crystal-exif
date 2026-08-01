@@ -24,8 +24,24 @@ class Exif
     initialize(data_ptr)
   end
 
-  def initialize(file : File)
-    initialize(file.path)
+  def initialize(data : Bytes)
+    loader = LibExif.exif_loader_new
+    raise Error.new("Unable to load EXIF data") if loader.null?
+
+    begin
+      LibExif.exif_loader_write(loader, data.to_unsafe, data.size.to_u32)
+      data_ptr = LibExif.exif_loader_get_data(loader)
+    ensure
+      LibExif.exif_loader_unref(loader)
+    end
+
+    initialize(data_ptr)
+  end
+
+  def initialize(io : IO)
+    buffer = IO::Memory.new
+    IO.copy(io, buffer)
+    initialize(buffer.to_slice)
   end
 
   private def initialize(@data_ptr : Pointer(LibExif::ExifData))

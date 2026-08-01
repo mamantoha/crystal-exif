@@ -54,6 +54,13 @@ exif = Exif.new(file)
 exif.data
 ```
 
+EXIF data can also be read from memory or any `IO`:
+
+```crystal
+exif = Exif.new(image_bytes)
+exif = Exif.new(io)
+```
+
 ```crystal
 {"compression" => "JPEG compression",
  "image_description" => "",
