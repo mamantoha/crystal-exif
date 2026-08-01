@@ -4,7 +4,10 @@
 *.dwarf
 /samples/web/lib
 /bin/
-/samples/
+/samples/*
+!/samples/web/
+!/samples/web/public/
+!/samples/web/public/styles.css
 
 # Libraries don't need dependency lock
 # Dependencies will be locked in applications that use them

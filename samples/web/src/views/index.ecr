@@ -1,12 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXIF Viewer</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
 
 <body>
-  <form action="upload" method="post" enctype="multipart/form-data">
-    Select image to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*">
-    <input type="submit" value="Upload Image" name="submit">
-  </form>
+  <main class="page page--centered">
+    <section class="card upload-card">
+      <h1>EXIF Viewer</h1>
+      <p class="subtitle">Upload an image to inspect the metadata stored inside it.</p>
+
+      <form class="upload-form" action="upload" method="post" enctype="multipart/form-data">
+        <label for="fileToUpload">Choose an image</label>
+        <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*">
+        <p class="hint">Your image is processed locally by this sample application.</p>
+        <input type="submit" value="Read EXIF metadata" name="submit">
+      </form>
+    </section>
+  </main>
 </body>
 
 </html>
