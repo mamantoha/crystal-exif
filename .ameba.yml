@@ -2,3 +2,11 @@ Globs:
   - "**/*.cr"
   - "!samples"
   - "!lib"
+
+Lint/DuplicateEnumValue:
+  Excluded:
+    - src/exif/lib_exif.cr
+
+Naming/TypeNames:
+  Excluded:
+    - src/exif/lib_exif.cr
