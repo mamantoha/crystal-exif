@@ -1,6 +1,9 @@
 require "./exif/**"
 
 class Exif
+  class Error < Exception
+  end
+
   VERSION = {{ `shards version #{__DIR__}`.chomp.stringify }}
 
   BUFFER_SIZE = 1024
@@ -28,6 +31,8 @@ class Exif
   end
 
   private def initialize(@data_ptr : Pointer(LibExif::ExifData))
+    raise Error.new("Unable to load EXIF data") if @data_ptr.null?
+
     LibExif.exif_data_fix(@data_ptr)
 
     @mnote_data_ptr = LibExif.exif_data_get_mnote_data(@data_ptr)

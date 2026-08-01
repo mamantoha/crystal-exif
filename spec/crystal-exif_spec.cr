@@ -30,6 +30,12 @@ describe Exif do
         Exif.new("/not/found")
       end
     end
+
+    it "raises an error if EXIF data cannot be loaded" do
+      expect_raises Exif::Error, "Unable to load EXIF data" do
+        Exif.new("#{__DIR__}/fixtures/nan.jpg")
+      end
+    end
   end
 
   it ".data" do
