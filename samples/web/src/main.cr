@@ -8,16 +8,30 @@ MAX_UPLOAD_SIZE  = 32 * 1024 * 1024
 
 Kemal.config.max_request_body_size = MAX_UPLOAD_SIZE
 
-record EntryDetails,
-  tag : String,
-  tag_id : Int32,
-  ifd : String,
-  format : String,
-  components : LibC::ULong,
-  size : LibC::UInt,
-  value : String,
-  raw_bytes : String,
-  raw_truncated : Bool
+struct EntryDetails
+  getter tag : String
+  getter tag_id : Int32
+  getter ifd : String
+  getter format : String
+  getter components : LibC::ULong
+  getter size : LibC::UInt
+  getter value : String
+  getter raw_bytes : String
+  getter raw_truncated : Bool
+
+  def initialize(
+    @tag : String,
+    @tag_id : Int32,
+    @ifd : String,
+    @format : String,
+    @components : LibC::ULong,
+    @size : LibC::UInt,
+    @value : String,
+    @raw_bytes : String,
+    @raw_truncated : Bool,
+  )
+  end
+end
 
 def entry_details(entry : Exif::Entry) : EntryDetails
   bytes = entry.raw_bytes
