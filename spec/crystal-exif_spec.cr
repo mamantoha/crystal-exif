@@ -33,7 +33,7 @@ describe Exif do
   end
 
   context "initialize" do
-    it "success with a file" do
+    it "initializes with a file" do
       File.open(path) do |file|
         exif = Exif.new(file)
 
@@ -43,7 +43,7 @@ describe Exif do
       end
     end
 
-    it "success with a path" do
+    it "initializes with a path" do
       exif = Exif.new(path)
 
       data = exif.data
@@ -51,7 +51,7 @@ describe Exif do
       data["compression"].should eq("JPEG compression")
     end
 
-    it "raise an error if file does not exists" do
+    it "raises an error if the file does not exist" do
       expect_raises File::NotFoundError, "Error opening file: '/not/found': No such file" do
         Exif.new("/not/found")
       end
@@ -72,7 +72,7 @@ describe Exif do
     end
   end
 
-  it ".data" do
+  it "#data" do
     exif = Exif.new(path)
 
     data = exif.data
@@ -87,7 +87,7 @@ describe Exif do
     data["gps_altitude_ref"].should eq("Sea level")
   end
 
-  it ".mnote_data" do
+  it "#mnote_data" do
     exif = Exif.new(path)
 
     mnote_data = exif.mnote_data
@@ -100,12 +100,17 @@ describe Exif do
     end
   end
 
-  context "issues" do
-    it "should ot raise Invalid memory access" do
-      1024.times do
+  context "regressions" do
+    it "finalizes native data safely" do
+      read_exif = -> do
         exif = Exif.new(path)
         exif.data
-        exif.mnote_data
+        3.times { exif.mnote_data }
+      end
+
+      100.times do
+        read_exif.call
+        GC.collect
       end
     end
 
@@ -127,19 +132,19 @@ describe Exif do
   end
 
   context "instance methods" do
-    it ".gps_latitude" do
+    it "#model" do
       exif = Exif.new(path)
 
       exif.model.should eq("COOLPIX P6000")
     end
 
-    it ".gps_latitude" do
+    it "#gps_latitude" do
       exif = Exif.new(path)
 
       exif.gps_latitude.should eq("43, 28, 2.81400000")
     end
 
-    it ".gps_altitude_ref" do
+    it "#gps_altitude_ref" do
       exif = Exif.new(path)
 
       exif.gps_altitude_ref.should eq("Sea level")
