@@ -39,8 +39,8 @@ class Exif
 
   {% for name, _index in LibExif::ExifTag.constants %}
     {% attr = name.gsub(/^ExifTag/, "").underscore %}
-    def {{attr.id}} : String?
-      @data["{{attr}}"]?
+    def {{ attr.id }} : String?
+      @data["{{ attr }}"]?
     end
   {% end %}
 
