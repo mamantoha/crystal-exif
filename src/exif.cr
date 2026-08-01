@@ -28,7 +28,6 @@ class Exif
   end
 
   private def initialize(@data_ptr : Pointer(LibExif::ExifData))
-    LibExif.exif_data_ref(@data_ptr)
     LibExif.exif_data_fix(@data_ptr)
 
     @mnote_data_ptr = LibExif.exif_data_get_mnote_data(@data_ptr)
@@ -100,6 +99,5 @@ class Exif
 
   def finalize
     LibExif.exif_data_unref(@data_ptr)
-    LibExif.exif_data_free(@data_ptr)
   end
 end
