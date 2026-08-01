@@ -8,6 +8,7 @@
 !/samples/web/
 !/samples/web/public/
 !/samples/web/public/styles.css
+!/samples/web/public/app.js
 
 # Libraries don't need dependency lock
 # Dependencies will be locked in applications that use them

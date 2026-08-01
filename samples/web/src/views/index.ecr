@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EXIF Viewer</title>
   <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
 </head>
 
 <body>
@@ -13,10 +14,19 @@
       <h1>EXIF Viewer</h1>
       <p class="subtitle">Upload an image to inspect the metadata stored inside it.</p>
 
+      <% if upload_error %>
+        <p class="form-error" role="alert"><%= upload_error %></p>
+      <% end %>
+
       <form class="upload-form" action="upload" method="post" enctype="multipart/form-data">
         <label for="fileToUpload">Choose an image</label>
-        <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*">
-        <p class="hint">Your image is processed locally by this sample application.</p>
+        <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*" data-max-size="<%= MAX_UPLOAD_SIZE %>">
+        <div class="paste-zone" id="pasteZone" tabindex="0">
+          <strong>Paste from the clipboard</strong>
+          <span>Press Ctrl+V or Cmd+V anywhere on this page.</span>
+          <span class="paste-note">Images copied from a browser may lose EXIF metadata. For complete results, upload the original file or copy it from your file manager.</span>
+        </div>
+        <p class="upload-status" id="uploadStatus" aria-live="polite"></p>
         <input type="submit" value="Read EXIF metadata" name="submit">
       </form>
     </section>

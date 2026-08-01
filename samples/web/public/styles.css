@@ -127,8 +127,62 @@ input[type="submit"]:hover {
   background: #1d4ed8;
 }
 
+.paste-zone {
+  display: grid;
+  gap: 0.25rem;
+  padding: 1rem;
+  border: 1px dashed #94a3b8;
+  border-radius: 0.75rem;
+  color: #475569;
+  background: #f8fafc;
+  text-align: center;
+}
+
+.paste-zone strong {
+  color: #334155;
+}
+
+.paste-zone span,
+.upload-status {
+  font-size: 0.9rem;
+}
+
+.paste-zone .paste-note {
+  margin-top: 0.5rem;
+  color: #64748b;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.paste-zone.has-file {
+  border-color: #22c55e;
+  color: #166534;
+  background: #f0fdf4;
+}
+
+.upload-status {
+  min-height: 1.35rem;
+  margin: -0.25rem 0 0;
+  color: #166534;
+  text-align: center;
+}
+
+.upload-status.is-error {
+  color: #b91c1c;
+}
+
+.form-error {
+  margin: 1.25rem 0 0;
+  padding: 0.8rem 1rem;
+  border: 1px solid #fecaca;
+  border-radius: 0.75rem;
+  color: #991b1b;
+  background: #fef2f2;
+}
+
 input:focus-visible,
-a:focus-visible {
+a:focus-visible,
+.paste-zone:focus-visible {
   outline: 3px solid rgb(59 130 246 / 35%);
   outline-offset: 2px;
 }

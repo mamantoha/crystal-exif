@@ -4,6 +4,9 @@ require "exif"
 require "html"
 
 RAW_PREVIEW_SIZE = 128
+MAX_UPLOAD_SIZE  = 32 * 1024 * 1024
+
+Kemal.config.max_request_body_size = MAX_UPLOAD_SIZE
 
 record EntryDetails,
   tag : String,
@@ -34,6 +37,12 @@ def entry_details(entry : Exif::Entry) : EntryDetails
 end
 
 get "/" do
+  upload_error = nil
+  render "src/views/index.ecr"
+end
+
+error 413 do
+  upload_error = "The image is too large. The maximum upload size is 32 MB."
   render "src/views/index.ecr"
 end
 
