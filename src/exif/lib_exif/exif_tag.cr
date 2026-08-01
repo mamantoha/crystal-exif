@@ -144,7 +144,7 @@ lib LibExif
     ExifTagGpsLatitude          =  2 # ExifTagInteroperabilityVersion
     ExifTagGpsLongitudeRef      =  3
     ExifTagGpsLongitude         =  4
-    ExifTagGpAltitudeRef        =  5
+    ExifTagGpsAltitudeRef       =  5
     ExifTagGpsAltitude          =  6
     ExifTagGpsTimeStamp         =  7
     ExifTagGpsSatellites        =  8

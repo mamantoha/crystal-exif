@@ -50,6 +50,7 @@ describe Exif do
     data["user_comment"].should eq("")
     data["gps_latitude"].should eq("43, 28, 2.81400000")
     data["gps_longitude"].should eq("11, 53, 6.45599999")
+    data["gps_altitude_ref"].should eq("Sea level")
   end
 
   it ".mnote_data" do
@@ -125,6 +126,12 @@ describe Exif do
       exif = Exif.new(path)
 
       exif.gps_latitude.should eq("43, 28, 2.81400000")
+    end
+
+    it ".gps_altitude_ref" do
+      exif = Exif.new(path)
+
+      exif.gps_altitude_ref.should eq("Sea level")
     end
   end
 end

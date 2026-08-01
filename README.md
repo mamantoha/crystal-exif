@@ -103,7 +103,7 @@ exif.data
  "gps_latitude" => "43, 28, 2.81400000",
  "gps_longitude_ref" => "E",
  "gps_longitude" => "11, 53, 6.45599999",
- "gp_altitude_ref" => "Sea level",
+ "gps_altitude_ref" => "Sea level",
  "gps_time_stamp" => "14:27:07.24",
  "gps_satellites" => "06",
  "gps_img_direction_ref" => "",
